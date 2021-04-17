@@ -1,0 +1,94 @@
+  
+{% extends 'base.html' %}
+{% include 'messages.html' %}
+
+{% block header %}
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
+ {% endblock %}
+  {% block content %}
+
+  <div class="box" style="background: linear-gradient(to top, rgb(104, 222, 226), rgb(241, 195, 195)); height: 10vh;">
+   <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <form action="/{{shop.id}}" method="GET">
+          <div class="searchbar">
+              <input class="search_input" type="text" name="q" placeholder="Search...">
+              <button class="btn btn-sm btn-success" type="submit" style="background: none;
+                              border: none;"><i class="fas fa-search"></i></button>
+          </div>
+          </form>
+      </div>
+    </div>
+    <br>
+    <h2 style="text-align: center; padding: 0.8rem;"> List of medicines available in <b style="text-transform: uppercase;color: rgb(107, 7, 107); ">{{shop.shop_name}}</b></h2>
+    <br>
+  <div class="container">
+  <div class="table-responsive">
+  <table class="table table-borderless table-hover table-fixed">
+  <thead class="table-info"> 
+  <tr>
+  <th>Category</th>
+ <th> Medicine Name  </th>
+ <th> Description </th>
+  <th> Image </th>
+  <th> Price </th>
+  <th> Add to Cart </th>
+  </tr>
+  </thead>
+  <tbody>
+    {% if medlist %}
+    {% for med in medlist %}
+    <tr>
+      <td> {{med.catagory}}</td>
+        <td> {{med.name}} </td>
+        {% if med.description %}
+        <td> {{med.description}} </td>
+        {% else %}
+        <td> Not available </td>
+      
+        {% endif %}
+        <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
+        <td> {{med.price}} </td>
+        <td>  <form method="POST" action="/main/{{id}}/addcart">
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <button type="submit" class="btn btn-primary"> Add + </button>
+          <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
+      </form></td>
+        </tr>
+    {% endfor %}
+
+
+      {% elif products %}
+      {% for product in products %}
+  <tr>
+<td> {{product.catagory}}</td>
+  <td> {{product.name}} </td>
+  {% if product.description %}
+  <td> {{product.description}} </td>
+  {% else %}
+  <td> Not available </td>
+
+  {% endif %}
+  <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
+  <td> {{product.price}} </td>
+  <td> <button type="submit" class="btn btn-primary"> Add + </button></td>
+  </tr>
+  {% endfor %}
+  
+  {% endif %}
+  
+  
+  </tbody>
+  </table>
+  </div>
+  </div>
+  </div>
+  
+  {% endblock %}

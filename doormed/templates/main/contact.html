@@ -1,0 +1,71 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=0.1">
+        <title>
+            Contact us!!
+        </title>
+        <link rel="icon" href="{{url_for('static', filename = 'images/icon.png')}}" type="image/gif" sizes="16x16">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="static/css/contact.css">
+    </head>
+    <body>
+    {% include 'messages.html' %}
+        <section class="contact">
+            <div class="content">
+                <h2>Contact Us</h2>
+                <p>We are 24 hours available contact anytime</p>
+            </div>
+            <div class="container">
+                <div class="contactinfo">
+                    <div class="box">
+                        <div class="icon"></div>
+                        <div class="text">
+                            <h3>Address:</h3>
+                            <p>Suger camp road,<br>Yamuna nagar, Delhi<br>123456</p>
+
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"></div>
+                        <div class="text">
+                            <h3>Email:</h3>
+                            <p>xyz@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"></div>
+                        <div class="text">
+                            <h3>Mobile:</h3>
+                            <p>67895490XX</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="contactform">
+                <form method="POST" action="#">
+                    <h2> ENQUIRY</h2>
+                    <div class="inputbox">
+                        <input type="text" name="name" required="required">
+                        <span>FULL NAME:</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" name="email" required="required">
+                        <span>EMAIL:</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="tel" name="phone" required="required" pattern="^\d{10}$">
+                        <span>Phone No.:</span>
+                    </div>
+                    <div class="inputbox">
+                        <textarea required="required" name="query"></textarea>
+                        <span>Type your query....</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="Submit" name="SUBMIT" required="required" value="SUBMIT">
+                        <input action="action" onclick="window.history.go(-1); return false;" type="submit" value="Back"
+/>
+                    </div>
+
+                </form>
+        </section>
+    </body>

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% include 'messages.html' %}
+{% block header %}
+<link rel="stylesheet" href="static/css/rsstyle.css">
+{% endblock %}
+
+
+{% block content %}
+<h2>SELLER REGISTRATION FORM</h3>
+
+ <form action="" method="POST">
+<table align="center" cellpadding = "10">
+ 
+<!--------------------- First Name ------------------------------------------>
+<tr>
+<td>Name *</td>
+<td><input type="text" name="Name" maxlength="50" placeholder="name"  required/>
+</td>
+</tr>
+ 
+<!------------------------ Last Name --------------------------------------->
+
+ 
+<!-------------------------- Email ID ------------------------------------->
+<tr>
+<td>Email ID *</td>
+<td><input type="email" name="EmailID" maxlength="100" placeholder="email.." required/></td>
+</tr>
+
+<!---------------------------Password-------------------------------------->
+<tr>
+<td>Password *</td>
+<td> <input type="Password" name="Password" id="password" pattern=".{8,}"   required title="8 characters minimum" placeholder="*****(Min 8 characters)"/></td>
+</tr>
+ 
+<!---------------------------Confirm Password-------------------------------------->
+<tr>
+<td>Confirm Password *</td>
+<td> <input type="Password" name="Password" id="confirm_password" pattern=".{8,}"   required title="8 characters minimum" placeholder="*****"/></td>
+</tr>
+<!-------------------------- Mobile Number ------------------------------------->
+<tr>
+<td>Mobile Number *</td>
+<td>
+<input type="tel" name="MobileNumber" maxlength="10" placeholder="7865XX" required/>
+</td>
+</tr>
+ 
+ 
+<!------------------------- Address ---------------------------------->
+<tr>
+<td>Address *<br /><br /><br /></td>
+<td><textarea name="Address" rows="10" cols="50" placeholder="Type_your_full_address_with_proper_landmarks_nearby...." required></textarea></td>
+</tr>
+ 
+<!-------------------------- City ------------------------------------->
+<tr>
+<td>City *</td>
+<td><input type="text" name="City" maxlength="50" placeholder="Your_City" required/>
+</td>
+</tr>
+ 
+<!-------------------------- Pin Code-------------------------------------->
+<tr>
+<td>Pin Code *</td>
+<td><input type="Number" name="PinCode" maxlength="6" placeholder="pin_code" required/>
+</td>
+</tr>
+ 
+<!---------------------------- State ----------------------------------->
+<tr>
+<td>State *</td>
+<td><input type="text" name="State" maxlength="50" placeholder="Your_State" required/>
+</td>
+</tr>
+ 
+<!------------------------------ Shop Name --------------------------------->
+<tr>
+<td>Shop Name *</td>
+<td><input type="text" name="shop" placeholder="Your_shop_name" required/></td>
+</tr>
+
+<!------------------------- Bio ---------------------------------->
+<tr>
+    <td>Bio<br /></td>
+    <td><textarea name="Address" rows="5" cols="50" placeholder="(Optional)"></textarea></td>
+</tr>
+
+<!------------------------------ Image of Shop --------------------------------->
+<tr>
+    <td>Shop Image *</td>
+    <td><input type="file" name="fileupload" value="fileupload" id="fileupload"></td>
+    </tr>
+ 
+<!----------------------- Submit and Reset ------------------------------->
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Submit" onclick="Validate()">
+
+</td>
+</tr>
+</table>
+ 
+</form>
+<script type="text/javascript">
+    function Validate() 
+    {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+        if (password != confirmPassword) 
+        {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
+ 
+{% endblock %}

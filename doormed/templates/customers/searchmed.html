@@ -1,0 +1,82 @@
+  
+{% extends 'base.html' %}
+{% include 'messages.html' %}
+
+{% block header %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+{% endblock %}
+
+{% block content %}
+<div class="box" style="background: linear-gradient(to top, rgb(104, 222, 226), rgb(241, 195, 195)); height: 10vh;">
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <form action="/main/{{id}}/search" method="GET">
+                <div class="searchbar">
+                    <input class="search_input" type="text" name="q" placeholder="Search...">
+                    <button class="btn btn-sm btn-success" type="submit" style="background: none;
+                                    border: none;"><i class="fas fa-search"></i></button>
+                </div>
+                </form>
+        </div>
+    </div>
+    <br>
+    <h3 style="color:blue; text-align: center;"> Search result for <b style="color: green;">"{{q}}"</b> :</h3>
+    <br>
+    <div class="container">
+        {% if products %}
+        <div class="table-responsive">
+            <table class="table table-borderless table-hover table-fixed">
+                <thead class="table-info">
+                    <tr>
+                        <th>Shop name</th>
+                        <th> Medicine Name </th>
+                        <th> Description </th>
+                        <th> Image </th>
+                        <th> Price </th>
+                        <th> Add to Cart </th>
+                    </tr>
+                </thead>
+               
+                <tbody>
+
+                    <tr>
+              
+                        {% for sh, product in shop_and_prod %}
+                        <td> {{sh.shop_name}} </td>
+                        
+                                              
+                        <td> {{product.name}} </td>
+                        {% if product.description %}
+                        <td> {{product.description}} </td>
+                        {% else %}
+                        <td> Not available</td>
+                        {% endif %}
+                        <td> <img src="/static/img/amoxil.png" width="130px" height="100px"> </td>
+                        <td> {{product.price}} </td>
+                        <td> 
+                        <form method="POST" action="/main/{{id}}/addcart">
+                            <input type="hidden" name="product_id" value="{{ product.id }}">
+                            <button type="submit" class="btn btn-primary"> Add + </button>
+                            <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
+                        </form>
+                    </td>
+                       
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                    {% else %}
+                  <h2 style="text-align: center; color: rgb(2, 2, 116); margin-top: 5rem;">Medicines of this name are not available in any near by shop..</h2> 
+
+                    {% endif %}
+           
+                  <input style="float: right; background-color: crimson; color: white; outline: none;padding: 0.5rem;width: 10%;
+                  border-radius: 8px;
+                  margin: 2rem" action="action" onclick="window.history.go(-1); return false;" type="submit" value="Back"/>
+        </div>
+    </div>
+</div>
+{% endblock %}

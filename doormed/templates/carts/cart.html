@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block header %}
+  
+
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/cart.css')}}">
+{% endblock %}
+{% block content %}
+    <div class="top">
+        <a>&larr; back to Pharmacy</a>
+        <h2>DoorMed</h2>
+        <p></p>
+    </div>
+    <div class="whole">
+   {% include 'messages.html' %}
+            <div class="cart">
+                <div class="order">
+                    <h3>Order from </h3>
+                    <h5>Apollo Pharmacy</h5>
+                    <p>Homes 121, Sector 121, Noida</p>
+                </div>
+                <table  class="table table-sm table-condensed table-striped table-hover ">
+                   <thead>
+                    <tr>
+                        <th>S No</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set ns = namespace(sub=0) %}
+                    {% for item,ch in items %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>
+                            <div class="cart-info">
+                              
+                                <p>{{item.name}}</p>
+                            </div>
+                        </td>
+                        <td>{{item.price}}</td>
+                        <td style="padding-left: 1.5rem;">{{ch.quantity}}</td>
+                        <td>{{item.price * ch.quantity}}</td>
+       {% set ns.sub = ns.sub + (item.price * ch.quantity)%}
+                     
+
+                        <td><a href="#">Remove</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+        
+                <div class="total">
+                    <table>
+                        <tr>
+                            <td>Total</td>
+                            <td>{{ns.sub}}</td>
+                        </tr>
+                       
+                        
+                    </table>
+                </div>
+        
+            </div>
+        
+            <div class="checkout">
+                <h1>Secure Checkout</h1>
+                <div class="box">
+                    <h4>{{user.name}}</h4>
+                    <p>You are logged in</p>
+                </div>
+                <div class="box">
+                    <h4>Delivery Address</h4>
+                    <p><b>Home</b> {{user.address}} {{user.pincode}}</p>
+                </div>
+                <div class="box box-2 ">
+                    <h3>Select Payment Method</h3>
+                    <p>Currently we are accepting only COD orders</p>
+                    <input type="checkbox" id="COD" name="COD" value="COD" />
+                    <label>Cash on Delivery</label><br><br>
+                    <input type="checkbox" disabled id="COD" name="COD" value="COD" />
+                    <label>Wallets or Upi</label><br><br>
+                    <input type="checkbox" disabled id="COD" name="COD" value="COD" />
+                    <label>Credit or Debit Card</label>
+                </div>
+                <button id="order">Place Order</button>
+        
+            </div>
+            </div>
+
+    
+{% endblock %}

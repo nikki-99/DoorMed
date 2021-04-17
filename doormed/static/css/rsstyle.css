@@ -1,0 +1,64 @@
+*{
+    background-image: url("1.jpg");
+}
+h2{
+    font-family: Sans-serif; 
+    font-size: 24px;         
+    font-style: normal; 
+    font-weight: bold; 
+    color: green;
+    text-align: center; 
+    text-decoration: underline;
+    margin: 2rem;
+  }
+  
+  table{
+    font-family: verdana; 
+    color:black; 
+    background-color:cyan;
+    font-size: 16px; 
+    font-style: normal;
+    font-weight: bold;
+    background-color:lightskyblue; 
+    border-collapse: collapse; 
+    border: 4px solid #000000;
+    border-style: double;
+    
+  
+  }
+  table.inner{
+    border: 10px;
+    
+  }
+  
+  input[type=text], input[type=email]{
+    width: 70%;
+    padding: 6px 12px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+  input[type=Password]{
+    width: 70%;
+    padding: 6px 12px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+  input[type=submit],input[type=reset]{
+    width: 20%;
+    padding: 8px 12px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+  input[placeholder=Fname],
+  input[placeholder=Lname],
+  input[placeholder=email],
+  input[placeholder=7865XX],
+  input[placeholder=Your_City],
+  input[placeholder=Your_Shop],
+  input[placeholder=pin_code],
+  input[placeholder=Your_shop_name],
+  textarea[placeholder=Type_your_full_address_with_proper_landmarks_nearby],
+  textarea[placeholder=(Optional)]{
+      color:darkmagenta;
+  }
+  

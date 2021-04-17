@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block header %}
+  <link rel="icon" href="{{url_for('static', filename = 'images/icon.png')}}" type="image/gif" sizes="16x16">
+
+<link rel="stylesheet" type="text/css"
+href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+  <link rel="stylesheet" href="{{url_for('static', filename = 'css/home.css')}}">
+{% endblock %}
+{% block content %}
+    <div class="home">
+  <main>
+    <center>
+      <div class="section"></div>
+      <img class="responsive-img" src="{{url_for('static', filename = 'images/icon.png')}}">
+    </center>
+    <center>
+      <h4><span>DOORMED</span></h4>
+      <div class="section"></div>
+      <div class="container">
+        <div class=" row" id="login-box">
+          <div class='row'>
+            <center>
+              <div class='row'>
+                  <a href="/shops"><button >SELLER</button></a>
+              </div>
+            </center>
+          </div>
+          <div class='row'>
+            <center>
+              {% if id %}
+              <div class='row'>
+                  <a href="/main/{{id}}"><button >CUSTOMER</button></a>
+              </div>
+              {% else %}
+              <div class='row'>
+                <a href="/customer_page"><button >CUSTOMER</button></a>
+            </div>
+            {% endif %}
+            </center>
+          </div>
+        </div>
+      </div>
+    </center>
+  </main>
+  <footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); padding: 0.2rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
+
+     </footer>
+</div>
+{% endblock %}
