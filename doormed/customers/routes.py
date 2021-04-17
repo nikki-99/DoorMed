@@ -125,6 +125,8 @@ def search(id):
 @app.route('/<int:id>')
 @login_required
 def shop_details(id):
+    if current_user.is_authenticated:
+        user = Register_user.query.filter_by(id = current_user.id)
     medlist = []
     shop = Register_seller.query.filter_by(id = id).first()
     products = Products.query.filter_by(shop_id = shop.id)
@@ -133,7 +135,7 @@ def shop_details(id):
         for product in products:
             if q.lower() in product.name.lower():
                 medlist.append(product)
-    return render_template('customers/details.html', shop = shop, products = products, medlist = medlist)
+    return render_template('customers/details.html', shop = shop, products = products, medlist = medlist, user = user)
 
 # hbjsdesghdsjdnbjs
 

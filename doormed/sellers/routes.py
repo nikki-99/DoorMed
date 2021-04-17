@@ -109,6 +109,13 @@ def addproduct():
         price = request.form.get('price')
         mfg = request.form.get('Mfg')
 
+        name1 = Products.query.filter_by(name = name).first()
+        if name1:
+            
+            flash(f'You have already added this medicine!..')
+            return redirect(url_for('addproduct'))
+              
+
         entry = Products(name=name, shop_id=current_user.id, catagory=catagory, price=price, mfg=mfg, description=desc, pic=image)
         db.session.add(entry)
         db.session.commit()

@@ -6,9 +6,14 @@
 {% endblock %}
 {% block content %}
     <div class="top">
-        <a>&larr; back to Pharmacy</a>
-        <h2>DoorMed</h2>
-        <p></p>
+        <input action="action" onclick="window.history.go(-1); return false;" type="submit" value="&larr; back to Pharmacy" style="background: darkolivegreen;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 10px;
+        margin-left: 1rem;
+        margin-top: 2rem;">
+       
+      
     </div>
     <div class="whole">
    {% include 'messages.html' %}
@@ -89,6 +94,8 @@
         
             </div>
             </div>
-
+            <footer style="background-color: rgb(255, 254, 254); color: rgb(252, 0, 0); padding: 0.1rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
+                <h3><a href="/contact" style="color: rgb(0, 0, 0); margin-left: 2rem;">Contact Us</a></h3>
+                 </footer>
     
 {% endblock %}

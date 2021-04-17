@@ -29,7 +29,7 @@
     <br>
     <h2 style="text-align: center; padding: 0.8rem;"> List of medicines available in <b style="text-transform: uppercase;color: rgb(107, 7, 107); ">{{shop.shop_name}}</b></h2>
     <br>
-  <div class="container">
+  <div class="container" style="height: 80vh;">
   <div class="table-responsive">
   <table class="table table-borderless table-hover table-fixed">
   <thead class="table-info"> 
@@ -54,10 +54,12 @@
         <td> Not available </td>
       
         {% endif %}
+
+       
         <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
         <td> {{med.price}} </td>
-        <td>  <form method="POST" action="/main/{{id}}/addcart">
-          <input type="hidden" name="product_id" value="{{ product.id }}">
+        <td>  <form method="POST" action="/main/{{current_user.id}}/addcart">
+          <input type="hidden" name="product_id" value="{{ med.id }}">
           <button type="submit" class="btn btn-primary"> Add + </button>
           <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
       </form></td>
@@ -78,7 +80,11 @@
   {% endif %}
   <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
   <td> {{product.price}} </td>
-  <td> <button type="submit" class="btn btn-primary"> Add + </button></td>
+  <td> <form method="POST" action="/main/{{current_user.id}}/addcart">
+    <input type="hidden" name="product_id" value="{{ product.id }}">
+    <button type="submit" class="btn btn-primary"> Add + </button>
+    <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
+</form></td>
   </tr>
   {% endfor %}
   
@@ -89,6 +95,9 @@
   </table>
   </div>
   </div>
-  </div>
-  
+
+  <footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); padding: 0.2rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
+    <h3><a href="/contact" style="color: white; margin-left: 2rem;">Contact Us</a></h3>
+     </footer>
+    </div>
   {% endblock %}
