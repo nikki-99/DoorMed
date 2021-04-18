@@ -32,6 +32,7 @@ def addcart(id):
         return redirect(url_for('cart', id = user.id))
     return render_template('carts/cart.html', user = user)    
     
+
         
 
 

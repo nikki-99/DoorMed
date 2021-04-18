@@ -92,7 +92,21 @@ def accountupdate():
         return redirect(url_for('shops'))
     return render_template('sellers/shop.html', seller = seller, products = products)    
 
-        
+
+
+
+@app.route('/shops/delete', methods= ['GET', 'POST'])
+@login_required
+def shop_delete():
+    seller = Register_seller.query.filter_by(id = current_user.id).first() 
+    products = Products.query.filter_by(shop_id = current_user.id)
+    if request.method == "POST":
+        db.session.delete(seller)
+        db.session.commit()
+        return redirect(url_for('seller_login'))
+    return render_template('sellers/shop.html', seller = seller, products = products)    
+          
+              
 
 
 

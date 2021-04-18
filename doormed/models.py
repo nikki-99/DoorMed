@@ -62,7 +62,7 @@ class Register_seller(db.Model, UserMixin):
     shop_name = db.Column(db.String(120),  nullable=False)
     bio = db.Column(db.String(120),default= 'Best Shop')
     image = db.Column(db.String(120), nullable = False)
-    products = db.relationship('Products', backref='shop', lazy=True)
+    products = db.relationship('Products', backref='shop', lazy=True, cascade="all,delete")
 
     def __repr__(self):
         return '<Register_seller %r>' % self.name

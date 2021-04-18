@@ -33,6 +33,10 @@
         </div>
         <input class="btn btn-sm btn-warning" action="action" onclick="window.history.go(-1); return false;" type="submit" value="Back" style="width: 5%; margin-left: 2rem;"/>
         <a class="btn btn-sm btn-success float-right m-4" id="button">Update</a>
+        <form method="POST" action="/main/{{user.id}}/account/delete">
+            <input type="delete" class="btn btn-sm btn-warning float-right m-4" style="width: 74px;" placeholder="Delete"></input>
+        </form>
+      
         <div class="popup">
             <div class="content">
                 <i class="fas fa-user fa-4x"id="user"></i>

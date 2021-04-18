@@ -45,6 +45,11 @@
 
         {% include 'messages.html' %}
         <a class="btn btn-sm btn-info float-right m-4" id="button">Update</a>
+        <form method="POST" action="/shops/delete">
+
+          <input type="submit" class="btn btn-sm btn-danger float-right m-4" style="width: 74px;" placeholder="Delete"></input>
+      </form>
+
         <div class="popup">
           <div class="content">
               <i class="fas fa-user fa-4x"id="user"></i>
