@@ -72,8 +72,8 @@ def logout_seller():
 @app.route('/shops')
 @login_required
 def shops():
-    seller = Register_seller.query.filter_by(id = current_user.id ).first()
-    products = Products.query.filter_by(shop_id = current_user.id)
+    seller = Register_seller.query.filter_by(id =current_user.id ).first()
+    products = Products.query.filter_by(shop_id = seller.id)
     return render_template('sellers/shop.html', seller = seller, products = products)
 
 
@@ -81,7 +81,7 @@ def shops():
 @login_required
 def accountupdate():
     seller = Register_seller.query.filter_by(id = current_user.id).first() 
-    products = Products.query.filter_by(shop_id = current_user.id)
+    products = Products.query.filter_by(shop_id = seller.id)
     if request.method == "POST":
         
         seller.email = request.form.get("email")
@@ -99,10 +99,11 @@ def accountupdate():
 @login_required
 def shop_delete():
     seller = Register_seller.query.filter_by(id = current_user.id).first() 
-    products = Products.query.filter_by(shop_id = current_user.id)
+    products = Products.query.filter_by(shop_id = seller.id)
     if request.method == "POST":
         db.session.delete(seller)
         db.session.commit()
+        flash(f"Your account has successfully deleted!")
         return redirect(url_for('seller_login'))
     return render_template('sellers/shop.html', seller = seller, products = products)    
           
@@ -115,6 +116,7 @@ def shop_delete():
 @app.route('/shops/addproduct', methods=['GET','POST'])
 @login_required
 def addproduct():
+    seller = Register_seller.query.filter_by(id = current_user.id).first() 
     if request.method == "POST":
         name = request.form.get('Name')
         desc = request.form.get('Desc')
@@ -123,14 +125,14 @@ def addproduct():
         price = request.form.get('price')
         mfg = request.form.get('Mfg')
 
-        name1 = Products.query.filter_by(name = name).first()
+        name1 = Products.query.filter_by(name = name, shop_id = seller.id).first()
         if name1:
             
             flash(f'You have already added this medicine!..')
             return redirect(url_for('addproduct'))
               
 
-        entry = Products(name=name, shop_id=current_user.id, catagory=catagory, price=price, mfg=mfg, description=desc, pic=image)
+        entry = Products(name=name, shop_id=seller.id, catagory=catagory, price=price, mfg=mfg, description=desc, pic=image)
         db.session.add(entry)
         db.session.commit()
         flash(f'{name} is added successfully')
@@ -142,12 +144,14 @@ def addproduct():
 @app.route('/shops/deleteproduct/<int:id>', methods=['GET','POST'])
 @login_required
 def deleteproduct(id):
+    seller = Register_seller.query.filter_by(id = current_user.id).first() 
     product = Products.query.get_or_404(id)
     if request.method == 'POST':
         db.session.delete(product)
         db.session.commit()
         flash(f'{product.name} has been deleted successfully')
-    return redirect(url_for('shops'))
+        return redirect(url_for('shops'))
+    return render_template('sellers/shop.html',  seller = seller,products = products)    
       
 
    

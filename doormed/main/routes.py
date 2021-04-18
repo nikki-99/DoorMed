@@ -19,10 +19,12 @@ admin.add_view(ModelView(Contact, db.session))
 @app.route('/')
 def home():
     if current_user.is_authenticated:
+
         user = Register_user.query.filter_by(id = current_user.id).first()
         if user:
             return render_template('main/home.html', id = user.id)
-    return render_template('main/home.html')
+    return render_template('main/home.html')        
+
 
   
 def send_async_email(app,msg):

@@ -121,11 +121,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancel</button>
-          <form action="{{ url_for('deleteproduct', id = product.id)}}" method="POST">
+          <form action="{{url_for('deleteproduct', id = product.id)}}" method="POST">
             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
           </form>
-          
-        </div>
+         
       </div>
     </div>
   </div>
