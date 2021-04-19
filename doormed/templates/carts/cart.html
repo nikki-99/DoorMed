@@ -18,11 +18,14 @@
     <div class="whole">
    {% include 'messages.html' %}
             <div class="cart">
+                {% if shop %}
                 <div class="order">
+                   
                     <h3>Order from </h3>
                     <h5>{{shop.shop_name}}</h5>
                     <p>{{shop.address}}</p>
                     <p>{{shop.city}}</p>
+                    
                 </div>
                 <table  class="table table-sm table-condensed table-striped table-hover ">
                    <thead>
@@ -52,8 +55,32 @@
        {% set ns.sub = ns.sub + (item.price * ch.quantity)%}
                      
 
-                        <td><a href="#">Remove</a></td>
+                        ]<td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.id }}">
+                            Delete
+                          </button></td>
                     </tr>
+                    <!-- Modal -->
+<div class="modal fade" id="exampleModal-{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ item.name }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span class="text-danger">Are you sure? You want to delete product!</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancel</button>
+          <form action="{{url_for('deleteitem', id2 = ch.id, id = user.id)}}" method="POST">
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
+         
+      </div>
+    </div>
+  </div>
+  </div>
+
                     {% endfor %}
                 </tbody>
                 </table>
@@ -69,6 +96,12 @@
                     </table>
                 </div>
         
+
+         
+            {% else %}
+            <h1>Your cart is empty</h1>
+            {% endif %}
+
             </div>
         
             <div class="checkout">

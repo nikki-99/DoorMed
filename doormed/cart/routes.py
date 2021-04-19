@@ -10,14 +10,16 @@ def cart(id):
     cart1 = []
     user = Register_user.query.filter_by(id=id).first()
     carts = CartItem.query.filter_by(customer_id=id).all()
-    for cart in carts:
-        item = Products.query.filter_by(id=cart.product_id).first()
-        items.append(item)
-        cart1.append(cart)
-        shop1 = Register_seller.query.filter_by(id = item.shop_id).first()
+    if carts:
+        for cart in carts:
+            item = Products.query.filter_by(id=cart.product_id).first()
+            items.append(item)
+            cart1.append(cart)
+            shop1 = Register_seller.query.filter_by(id = item.shop_id).first()
        
     # cart = Cartitem.query.filter
-    return render_template("carts/cart.html",user=user,carts=carts,items=zip(items,cart1), shop = shop1)    
+        return render_template("carts/cart.html",user=user,carts=carts,items=zip(items,cart1), shop = shop1) 
+    return render_template("carts/cart.html",user=user,carts=carts,items=zip(items,cart1))        
 
 
 @app.route('/main/<int:id>/addcart', methods = ['GET','POST'])
@@ -32,9 +34,9 @@ def addcart(id):
         if carts:
             for cart in carts:
                 prodId = Products.query.filter_by(id = cart.product_id).first()
-                if prodId.id == productId:
-                    flash(f'You can not add this!')
-                    return "hi"
+                if prodId.id == int(productId):
+                    flash(f'You have already added this item in your cart!')
+                    return redirect(url_for('cart', id = user.id))
 
                 shopId = Register_seller.query.filter_by(id = prodId.shop_id).first()
                 if shop2.id != shopId.id:
@@ -53,5 +55,23 @@ def addcart(id):
 
         
 
+
+
+@app.route('/main/<int:id>/cart/delete/<int:id2>', methods=['GET','POST'])
+# @login_required
+def deleteitem(id, id2):
+    user = Register_user.query.filter_by(id = id).first()
+    # seller = Register_seller.query.filter_by(id = current_user.id).first() 
+    cart = CartItem.query.get_or_404(id2)
+    if request.method == 'POST':
+        db.session.delete(cart)
+        db.session.commit()
+        flash(f'Item has been deleted successfully from your cart!')
+        return redirect(url_for('cart', id = user.id))
+    return redirect(url_for('cart', id = user.id))    
+  
+      
+
+   
 
 
