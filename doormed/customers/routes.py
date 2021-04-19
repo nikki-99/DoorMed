@@ -48,7 +48,7 @@ def user_login():
             # return redirect(url_for('main', id = customer.id))
             login_user(customer)
             # print(customer.name)
-            return redirect(url_for('main', id = customer.id))
+            return redirect(url_for('main',id=customer.id))
 
         elif customer is None:
             flash(f"You haven't registered yet! Register first!")
@@ -128,7 +128,7 @@ def search(id):
 @login_required
 def shop_details(id):
     if current_user.is_authenticated:
-        user = Register_user.query.filter_by(id = current_user.id)
+        user = Register_user.query.filter_by(id = current_user.id).first()
     medlist = []
     shop = Register_seller.query.filter_by(id = id).first()
     products = Products.query.filter_by(shop_id = shop.id)

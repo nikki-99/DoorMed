@@ -43,6 +43,8 @@
   </tr>
   </thead>
   <tbody>
+
+    
     {% if medlist %}
     {% for med in medlist %}
     <tr>
@@ -58,7 +60,7 @@
        
         <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
         <td> {{med.price}} </td>
-        <td>  <form method="POST" action="/main/addcart">
+        <td>  <form method="POST" action="/main/{{user.id}}/addcart">
           <input type="hidden" name="product_id" value="{{ med.id }}">
           <button type="submit" class="btn btn-primary"> Add + </button>
           <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
@@ -82,7 +84,7 @@
   {% endif %}
   <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
   <td> {{product.price}} </td>
-  <td> <form method="POST" action="/main/addcart">
+  <td> <form method="POST" action="/main/{{user.id}}/addcart">
     <input type="hidden" name="product_id" value="{{ product.id }}">
     <button type="submit" class="btn btn-primary"> Add + </button>
     <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
