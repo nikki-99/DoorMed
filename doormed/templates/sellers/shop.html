@@ -35,29 +35,11 @@
                 <button><a href="/shops/addproduct">Add product</a></button>
             </div>
 
-            <!-- <div class="popup1">
-              <div class="content">
-                  <i class="fas fa-user fa-4x"id="user"></i>
-                  <div class="close1">
-                      <i class="fas fa-times" style="color: black;"></i>
-              </div>
-                 <form method="POST" action="/shops/update">
-                     
-                     
-                     <input type="text" placeholder="Email" value="{{seller.email}}" name="email" required>
-                     <input type="number" placeholder="Phone No"value="{{seller.number}}" name="number" required>
-                     <input type="text" placeholder="Address"value="{{seller.address}}" name="address" required>
-                     <input type="text" placeholder="City" value="{{seller.city}}" name="city" required>
-              
-                   <input type="submit" placeholder="Update" style="background: linear-gradient(to bottom, lightblue, blue);width: 20%;
-                   color: white;
-                   border: navajowhite;">
-                 </form>
-              </div> -->
+          
+           
 
 
-
-        <div class="board">
+ <div class="board"> 
             
 
             <div class="conatiner mt-5 ml-6" style="margin-left: 6rem; margin-right: 4rem;">
@@ -145,6 +127,27 @@
   </div>
 
 
+  <div class="popup1">
+    <div class="content">
+        <i class="fas fa-user fa-4x"id="user"></i>
+        <div class="close1">
+            <i class="fas fa-times" style="color: black;"></i>
+    </div>
+       <form method="POST" action="/shops/update">
+           
+           
+           <input type="text" placeholder="Email" value="{{seller.email}}" name="email" required>
+           <input type="number" placeholder="Phone No"value="{{seller.number}}" name="number" required>
+           <input type="text" placeholder="Address"value="{{seller.address}}" name="address" required>
+           <input type="text" placeholder="City" value="{{seller.city}}" name="city" required>
+    
+         <input type="submit" placeholder="Update" style="background:#082d63;width: 20%;
+         color: white;
+         border: navajowhite;">
+       </form>
+    </div>
+
+
 
 
 
@@ -156,9 +159,11 @@
               document.querySelector(".popup").style.visibility = "hidden";
           })
 
-          <script>
+         
           document.getElementById("button1").addEventListener('click', function(){
-              document.querySelector(".popup1").style.display = "flex";
+            document.getElementById("button1").style.color= "red";
+            console.log('helo');
+            document.querySelector(".popup1").style.display = "flex";
           })
           document.querySelector(".close1").addEventListener("click", function(){
               document.querySelector(".popup1").style.display = "none";

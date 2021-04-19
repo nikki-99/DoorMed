@@ -7,49 +7,32 @@
     {% endblock %}
 
     {% block content %}
-    <br />
-    <br />
-    
-    <div class="login-card">
-    <div class="log_head">
-    <h1>LOGIN</h1>
-    <img src="static/images/lock.png" alt="lock" class="lock" />
-    </div>
-    
-    <div class="log_body">
-    <form action="#" method="POST">
-     <table width="200" border="0" align="center">
-      <tr>
-        <td><input type="email" name="email" class="log_user" placeholder="Email" required></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><input type="password" name="password" class="log_Pass" placeholder="password" required></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td style="color:cornsilk;"><input name="remember" type="checkbox" value="Remember Me"> Forgot Password</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><input type="submit" name="login" class="login-submit" value="SIGN IN"></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td style="color:cornsilk;">Don't have an account ? <a href="/reg_user" rel="register">Register Here</a></td>
-      </tr>
-    </table>
-    
-    </form> 
-    </div>
+    <div class="login">
+      <div class="con">
+          <h2>Health is always the first priority for everyone and so is our customer to us</h2>
+          <br>
+          <p>Delivering medicines to door with least human contact and also in a low cost</p>
+      </div>
+      <div class="centre">
+          <header>Welcome to DoorMed</header>
+          <form action="#" method="POST">
+              <div class="txt_field">
+                  <input type="text" name="loginid" required>
+                  <span></span>
+                  <label>Username</label>
+              </div>
+              <div class="txt_field">
+                  <input type="password" name="pass" required>
+                  <span></span>
+                  <label>Password</label>
+              </div>
+              <div class="pass">Forgot Password?</div><br>
+              <input type="submit" value="Sign-in">
+              <div class="signup">
+                  Not a member? <a href="/reg_user">SignUp</a>
+              </div>
+          </form>
+      </div>
     
     </div>
- {% endblock %}
+    {% endblock %}

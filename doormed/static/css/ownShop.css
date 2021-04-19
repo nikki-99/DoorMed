@@ -173,7 +173,6 @@ td{
 
 
 
-/* 
 
 .popup1{
     background: rgba(0,0,0,0.8);
@@ -201,7 +200,7 @@ td{
 .popup1 .content{
     height: 470px;
     width: 500px;
-    background: #fff;
+    background: #32B47D;
     padding: 20px;
     border-radius: 8px;
     position: relative;
@@ -216,7 +215,7 @@ td{
     display: block;
     width: 50%;
     padding: 10px;
-    
+    border-radius: 5px;
     outline: none;
 
 }
@@ -235,5 +234,5 @@ td{
     color: black;
 }
 #user{
-    color: darkblue;
-} */
+    color: #161721;
+} 
