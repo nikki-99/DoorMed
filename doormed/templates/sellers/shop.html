@@ -1,155 +1,175 @@
-{% extends 'base.html' %}
 
-
-{% block header %}
-<link href="{{ url_for('static', filename = 'css/ownShop.css')}}" rel="stylesheet" type="text/css" />
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link href="{{ url_for('static', filename = 'css/ownShop.css')}}" rel="stylesheet" type="text/css" />
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+<body>
+    <div class="main">
+        <div class="dashboard">
+          <div class="imgBox" id="pop">
 
- {% endblock %}
-
-    {% block content %}
-    <div class="shop">
-        <div class="shop-details">
-            <div class="img-box">
-                <p>{{seller.image}}</p>
-               
-<img src="{{seller.image}}" alt="no-image">
-            </div>
-            <div class="details">
-                <h1>{{seller.shop_name}}</h1>
-                <ul>
-                    <li>Owner: <b>{{seller.name}}</b></li>
-                <li>Address: <b>{{seller.address}}</b></li>
-                <li>City: <b>{{seller.city}}</b></li>
-                <li>State: <b>{{seller.state}}</b></li>
-                <li> Email: <b>{{seller.email}}</b></li>
-                <li>Phone No: <b>{{seller.number}}</b></li>
-               
-                </ul>
-                <div class="links">
-                <a class="btn btn-sm btn-success" href="/shops/addproduct">Add product</a>
-                <a class="btn btn-sm btn-success">Orders</a>
-                <a class="btn btn-sm btn-danger" href="/logout_seller">LOGOUT</a>
-                </div>
-
-            </div>
-
+          </div>
+          <div class="links">
+           <a id="button1" > <i class="fas fa-pen-alt fa-2x"></i></a>
+            <i class="fas fa-book fa-2x"></i>
+            <form method="POST" action="/shops/delete">
+            
+          <button style="background-color: #222432; border: none;"> <i class="fas fa-user-minus fa-2x" id="out"></i></button> 
+          </form>
+            
+            <a href="/logout_seller">  <i class="fas fa-sign-out-alt fa-2x" id="out"></i></a>
+          </div>
         </div>
+        <div class="table-board">
+            <div class="btun">
+                <h1>{{seller.shop_name}}</h1>
+                <button><a href="/shops/addproduct">Add product</a></button>
+            </div>
 
-        {% include 'messages.html' %}
-        <a class="btn btn-sm btn-info float-right m-4" id="button">Update</a>
-        <form method="POST" action="/shops/delete">
-
-          <input type="submit" class="btn btn-sm btn-danger float-right m-4" style="width: 74px;" placeholder="Delete"></input>
-      </form>
-
-        <div class="popup">
-          <div class="content">
-              <i class="fas fa-user fa-4x"id="user"></i>
-              <div class="close">
-                  <i class="fas fa-times" style="color: black;"></i>
-          </div>
-             <form method="POST" action="/shops/update">
-                 
-                 
-                 <input type="text" placeholder="Email" value="{{seller.email}}" name="email" required>
-                 <input type="number" placeholder="Phone No"value="{{seller.number}}" name="number" required>
-                 <input type="text" placeholder="Address"value="{{seller.address}}" name="address" required>
-                 <input type="text" placeholder="City" value="{{seller.city}}" name="city" required>
-          
-               <input type="submit" placeholder="Update" style="background: linear-gradient(to bottom, lightblue, blue);width: 20%;
-               color: white;
-               border: navajowhite;">
-             </form>
-          </div>
+            <!-- <div class="popup1">
+              <div class="content">
+                  <i class="fas fa-user fa-4x"id="user"></i>
+                  <div class="close1">
+                      <i class="fas fa-times" style="color: black;"></i>
               </div>
-        <div class="list">
+                 <form method="POST" action="/shops/update">
+                     
+                     
+                     <input type="text" placeholder="Email" value="{{seller.email}}" name="email" required>
+                     <input type="number" placeholder="Phone No"value="{{seller.number}}" name="number" required>
+                     <input type="text" placeholder="Address"value="{{seller.address}}" name="address" required>
+                     <input type="text" placeholder="City" value="{{seller.city}}" name="city" required>
+              
+                   <input type="submit" placeholder="Update" style="background: linear-gradient(to bottom, lightblue, blue);width: 20%;
+                   color: white;
+                   border: navajowhite;">
+                 </form>
+              </div> -->
+
+
+
+        <div class="board">
+            
+
             <div class="conatiner mt-5 ml-6" style="margin-left: 6rem; margin-right: 4rem;">
           
-                  <table class="table table-sm table-condensed table-striped table-hover " style="text-align: center";>
-                      <thead>
-                          <th>No</th>
-                          
-                          <th>Category</th>
-                          <th>Product</th>
-                          <th>Image</th>
-                          <th>Price(Rs)</th>
+                <table class="table table-sm table-condensed table-striped table-hover " style="text-align: center";>
+                    <thead>
+                        <th>No</th>
                         
-                          
-                         
+                        <th>Category</th>
+                        <th>Product</th>
+                        <th>Image</th>
+                        <th>Price(Rs)</th>
+                      
                         
-                          <!-- <th>Edit</th> -->
-                          <th>Delete</th>
-                      </thead>
-                      <tbody>
-                        
+                       
+                      
+                        <!-- <th>Edit</th> -->
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                      
                         {% if products %}
                         {% for product in products %}
-                        <tr>
-                         
-                            <td>{{loop.index}}</td>
-                            <td><a href="#" style="text-decoration: none; color: black;">{{product.catagory}}</a></td>
-                            <td>{{product.name}}</td>
-                            <td><img src="" alt="no" width="40" height="30"></td>
-                            <td>{{product.price}}</td>
-                  
-                            <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ product.id }}">
-                                Delete
-                              </button></td>
-                        </tr>
+                    
+                      <tr>
+                       
+                          <td>{{loop.index}}</td>
+                          <td><a href="#" style="text-decoration: none; color: black;">{{product.catagory}}</a></td>
+                          <td>{{product.name}}</td>
+                          <td><img src="" alt="no" width="40" height="30"></td>
+                          <td>{{product.price}}</td>
+                
+                          <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ product.id }}">
+                              Delete
+                            </button></td>
+                      </tr>
+              
 
-                                  <!-- Button trigger modal -->
+                                <!-- Button trigger modal -->
 
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal-{{ product.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{ product.name }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <span class="text-danger">Are you sure? You want to delete {{ product.name }} product!</span>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancel</button>
-          <form action="{{url_for('deleteproduct', id = product.id)}}" method="POST">
-            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-          </form>
-         
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ product.name }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <span class="text-danger">Are you sure? You want to delete {{ product.name }} product!</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancel</button>
+        <form action="{{url_for('deleteproduct', id = product.id)}}" method="POST">
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+       
     </div>
   </div>
-           
-              
-                      {% endfor %}
-                      {% endif %}
-                      
-                      </tbody>
-                  </table>
-              </div>
-        </div>
-    </div>
+</div>
+</div>
 
-    <footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); padding: 0.2rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
-        <h3><a href="/contact" style="color: white; margin-left: 2rem;">Contact Us</a></h3>
-         </footer>
+{% endfor %}
+{% endif %}
 
-         <script>
-          document.getElementById("button").addEventListener('click', function(){
-              document.querySelector(".popup").style.display = "flex";
+         
+            
+                   
+                    
+                    </tbody>
+                </table>
+            </div>
+      </div>
+ 
+
+  <div class="popup">
+<p>Owner: <b>{{seller.name}}</b></p>
+<p>Address: <b>{{seller.address}}</b></p>
+<p>City: <b>{{seller.city}}</b></p>
+<p>State: <b>{{seller.state}}<</b></p>
+<p>Email: <b>{{seller.email}}</b></p>
+<p>Mob: <b>{{seller.number}}</b></p>
+  </div>
+  </div>
+
+
+
+
+
+    <script>
+        document.getElementById("pop").addEventListener('mouseover', function(){
+              document.querySelector(".popup").style.visibility = "inherit";
           })
-          document.querySelector(".close").addEventListener("click", function(){
-              document.querySelector(".popup").style.display = "none";
+          document.getElementById("pop").addEventListener('mouseout', function(){
+              document.querySelector(".popup").style.visibility = "hidden";
           })
-      </script>
-  
-{% endblock %}
+
+          <script>
+          document.getElementById("button1").addEventListener('click', function(){
+              document.querySelector(".popup1").style.display = "flex";
+          })
+          document.querySelector(".close1").addEventListener("click", function(){
+              document.querySelector(".popup1").style.display = "none";
+          })
+          
+    </script>
+
+</body>
+</html>

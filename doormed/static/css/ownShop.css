@@ -1,55 +1,181 @@
-.shop{
-    height: 100vh;
-    width: 100%;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.shop .shop-details{
-    height: fit-content;
-    width: 100%;
-    background-color: rgb(240, 134, 134);
-    display: flex;
-    /* flex-wrap: wrap; */
 
-    position: relative;
-}
-.shop .shop-details .img-box{
-    height: 28vh;
-    /* flex: 1; */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
   
-    border-radius: 10%;
-    position: relative;
-}
-.shop .shop-details .img-box img{
-    height: 25vh;
-    /* position: absolute; */
-    padding: 0.8rem;
-    top: 20%;
-    left: 20%;
-    /* transform: translate(-20%, -20%); */
-
-}
-
-.shop .shop-details .details{
-    height: fit-content;
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 5px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #32B47D; 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
+.main{
     width: 100%;
-    /* background-color: yellow; */
+    height: 100vh;
+    background: #161721;
+    position: relative;
     display: flex;
     align-items: center;
-    margin-left: 5rem;
+    justify-content: space-between;
+
+}
+
+.dashboard{
+    width: 20%;
+    background: #222432;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem;
+    /* justify-content: space-around; */
+    position: relative;
+}
+.dashboard .imgBox{
+
+    width: 19vh;
+    height: 19vh;
+    border-radius: 50%;
+    background: gray;
+}
+.dashboard .links{
+    height: 70vh;
+    width: 100%;
+    /* background: chartreuse; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
 }
-.shop .shop-details .details ul{
-    /* background-color: red; */
-    margin-top: 1rem;
-    list-style: none;
+.dashboard .links i{
+    color: #32B47D;
+    cursor: pointer;
 }
-h1{
+#out{
+    color: #DF3D3D;
+}
+.table-board{
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    
+}
+
+.btun{
+    height: 15vh;
+    /* padding-top: 6rem; */
+    /* padding-left: 43rem; */
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float: right;
+    width: 82%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    
+}
+.btun button{
+    padding: 0.8rem 2.5rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    
+    background-color: #32B47D;
+}
+.btun button a{
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+
+
+}
+.btun h1{
+    color: white;
+    font-weight: 600;
+    font-size: 45px;
     text-transform: uppercase;
-    color: blue;
+    text-shadow: 2px 2px 5px gray;
+}
+.board{
+    
+    /* margin: auto; */
+    margin-left: 2rem;
+    background: #222432;
+    width: 90%;
+    height: 70vh;
+    margin-left: 2rem;
+    overflow-y: scroll;
+    padding: 1rem;
+    border-radius: 5px;
+}
+th{
+    color: white;
+    font-weight: 600;
+}
+td{
+    font-weight: 600;
+    color: #32B47D;
+}
 
+#pop{
+    cursor: pointer;
+}
+.popup{
+    /* z-index: -1; */
+    display: none;
+    visibility: hidden;
+    height: 40vh;
+    width: 50vh;
+    background: #161721;
+    position: absolute;
+    top: 15%;
+    left: -5%;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px gray;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 1.3rem;
+    transition: 0.2s;
+}
+.popup p{
+    color: #32B47D;
+    padding: 0rem 2rem;
+}
+.popup b{
+    color: white;
+    margin-left: 0.2rem;
 }
 
 
-.popup{
+
+/* 
+
+.popup1{
     background: rgba(0,0,0,0.8);
     width: 100%;
     height: 100%;
@@ -62,7 +188,7 @@ h1{
     transition: 0.5s;
     
 }
-form a{
+.popup1 .content form a{
     border: 1px s black;
     padding: 0.8rem;
     background: brown;
@@ -72,7 +198,7 @@ form a{
     cursor: pointer;
     transition: 0.5s;
 }
-.popup .content{
+.popup1 .content{
     height: 470px;
     width: 500px;
     background: #fff;
@@ -81,11 +207,11 @@ form a{
     position: relative;
 
 }
-form{
+.popup1 .content form{
     
     padding: 1rem;
 }
-input{
+.popup1 .content form input{
     margin: 20px auto;
     display: block;
     width: 50%;
@@ -94,7 +220,7 @@ input{
     outline: none;
 
 }
-.close{
+.close1{
     position: absolute;
     top: -3px;
     right: 4px;
@@ -105,9 +231,9 @@ input{
     color: black;
     
 }
-.close i{
+.close1 i{
     color: black;
 }
 #user{
     color: darkblue;
-}
+} */
