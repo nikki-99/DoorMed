@@ -3,7 +3,7 @@
 {% include 'messages.html' %}
 
 {% block header %}
-    <link href="static/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="{{url_for('static', filename = 'css/login.css')}}" rel="stylesheet" type="text/css" />
     {% endblock %}
 
     {% block content %}
@@ -15,14 +15,14 @@
       </div>
       <div class="centre">
           <header>Welcome to DoorMed</header>
-          <form  method="POST">
+          <form action="#" method="POST">
               <div class="txt_field">
-                  <input type="text" name="email" required>
+                  <input type="text" name="email1" required>
                   <span></span>
-                  <label>Username</label>
+                  <label>Email</label>
               </div>
               <div class="txt_field">
-                  <input type="password" name="password" required>
+                  <input type="password" name="password1" required>
                   <span></span>
                   <label>Password</label>
               </div>

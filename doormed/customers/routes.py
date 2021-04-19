@@ -38,15 +38,16 @@ def reg_user():
 @app.route('/user_login', methods = ['GET', 'POST'])
 def user_login():
     if request.method == 'POST':
-        email = request.form.get("email")
-        password1 = request.form.get("password")
-        customer = Register_user.query.filter_by(email = email ).first()
+        email1 = request.form.get("email1")
+        password1 = request.form.get("password1")
+        customer = Register_user.query.filter_by(email = email1).first()
         
         # form.email.data = ""
         if customer and bcrypt.check_password_hash(customer.password,password1):
             # return redirect(url_for('shops', id = seller.id))
-            # eturn redirect(url_for('main', id = customer.id))
+            # return redirect(url_for('main', id = customer.id))
             login_user(customer)
+            # print(customer.name)
             return redirect(url_for('main', id = customer.id))
 
         elif customer is None:
@@ -56,7 +57,7 @@ def user_login():
             flash(f'Login Unsuccessful. Please check email or password','danger')     
             return redirect(url_for('user_login')) 
 
-    return render_template("customers/login.html")
+    return render_template("customers/login_user.html")
 
 
 
@@ -71,6 +72,7 @@ def logout():
 
 def customer_page():
     shops = Register_seller.query.all()
+    
     return render_template('customers/shops.html', shops = shops)  
 
 
