@@ -35,7 +35,7 @@
                         <th>Price</th>
                         
                         <th>Quantity</th>
-                       
+                       <th>Update</th>
                         <th>Subtotal</th>
                       
                         <th>Delete</th>
@@ -56,10 +56,11 @@
                        
                         <td>
                             <form method="POST" action="{{url_for('updateitem', id = user.id, id2 = ch.id)}}">
-                           <button class="fa"><i class="fas fa-minus"></i></button>  
-                          <input type="number" value="{{ch.quantity}}" min="1" style="width: 50px;
+                      
+                          <input type="number" value="{{ch.quantity}}" min="1" style="width: 50px" name="quantity"
                           height: 27px; outline: none; font-size: 15px">   
-                            <button class="fa"><i class="fas fa-plus"></i></button>
+                         <button><input type="submit" placeholder="Update">Update</button> 
+                           
                             </form>
                             
                             </td>
@@ -110,10 +111,11 @@
                     </table>
                 </div>
         
-
+<a href="/main/{{user.id}}/clearcart">Clear Cart</a>
          
             {% else %}
             <h1>Your cart is empty</h1>
+            
             {% endif %}
 
             </div>

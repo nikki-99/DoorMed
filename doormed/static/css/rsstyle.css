@@ -1,64 +1,80 @@
-*{
-    background-image: url("1.jpg");
+body {
+  color: grey;
+  font-family: 'Lato';
+  text-align: center;
+  background-image: url("../images/st.jpg"); 
+  background-size: cover;
+  margin: 30px;
 }
-h2{
-    font-family: Sans-serif; 
-    font-size: 24px;         
-    font-style: normal; 
-    font-weight: bold; 
-    color: green;
-    text-align: center; 
-    text-decoration: underline;
-    margin: 2rem;
-  }
-  
-  table{
-    font-family: verdana; 
-    color:black; 
-    background-color:cyan;
-    font-size: 16px; 
-    font-style: normal;
-    font-weight: bold;
-    background-color:lightskyblue; 
-    border-collapse: collapse; 
-    border: 4px solid #000000;
-    border-style: double;
-    
-  
-  }
-  table.inner{
-    border: 10px;
-    
-  }
-  
-  input[type=text], input[type=email]{
-    width: 70%;
-    padding: 6px 12px;
-    margin: 5px 0;
-    box-sizing: border-box;
-  }
-  input[type=Password]{
-    width: 70%;
-    padding: 6px 12px;
-    margin: 5px 0;
-    box-sizing: border-box;
-  }
-  input[type=submit],input[type=reset]{
-    width: 20%;
-    padding: 8px 12px;
-    margin: 5px 0;
-    box-sizing: border-box;
-  }
-  input[placeholder=Fname],
-  input[placeholder=Lname],
-  input[placeholder=email],
-  input[placeholder=7865XX],
-  input[placeholder=Your_City],
-  input[placeholder=Your_Shop],
-  input[placeholder=pin_code],
-  input[placeholder=Your_shop_name],
-  textarea[placeholder=Type_your_full_address_with_proper_landmarks_nearby],
-  textarea[placeholder=(Optional)]{
-      color:darkmagenta;
-  }
-  
+
+h1 {
+  color:brown;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.form-container {
+  text-align: left;
+  background: white;
+  opacity: .8;
+  margin-top: 10%;
+  margin-right: 30%;
+  padding: 20px;
+}
+
+label {
+  color:  #07aa59;
+  text-transform: uppercase;
+}
+
+input, textarea {
+  background: transparent;
+  font-size: 14px;
+  display: block;
+  padding: 10px 30px 10px 5px;
+  margin: 10px 0 40px;
+  border: 2px solid white;
+  border-bottom: 2px solid grey;
+  width:90%;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #66cc99;;
+}
+
+.radio-question input {
+  margin: 10px;
+  padding: 0;
+}
+
+.radio-input {
+  display: inline;
+  width:25px;
+}
+
+.button {
+  background: #07aa59;
+  border: 0;
+  padding: 15px 30px;
+  margin-top: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  width: 45%;
+}
+.button:hover {
+  background: #5ec190;
+}
+.password-rules {
+  font-size: 10px;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+.error-message {
+  color: red;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}

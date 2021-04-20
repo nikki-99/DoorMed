@@ -78,12 +78,24 @@ def updateitem(id, id2):
     user = Register_user.query.filter_by(id = id).first()
     # seller = Register_seller.query.filter_by(id = current_user.id).first() 
     cart = CartItem.query.get_or_404(id2)
-    
+    quantity = request.form.get("quantity")
+    cart.quantity = quantity
     if request.method == 'POST':
         db.session.add(cart)
         db.session.commit()
         return redirect(url_for('cart', id = user.id))
     return redirect(url_for('cart', id = user.id))    
+
+
+@app.route('/main/<int:id>/clearcart')
+def clearcart(id):
+    user = Register_user.query.filter_by(id = id).first()
+    carts = CartItem.query.filter_by(customer_id = user.id).all()
+    if carts:
+        for cart in carts:
+            db.session.delete(cart)
+            db.session.commit()
+        return redirect(request.referrer)
 
 
    

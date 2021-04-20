@@ -87,7 +87,7 @@ def accountupdate():
         seller.email = request.form.get("email")
         seller.number = request.form.get("number")
         seller.address = request.form.get("address")
-        seller.city = request.form.get("city")
+        seller.city = request.form.get("city").lower()
         db.session.commit()
         return redirect(url_for('shops'))
     return render_template('sellers/shop.html', seller = seller, products = products)    

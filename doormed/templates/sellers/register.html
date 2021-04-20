@@ -1,119 +1,75 @@
 {% extends 'base.html' %}
-{% include 'messages.html' %}
 {% block header %}
-<link rel="stylesheet" href="static/css/rsstyle.css">
-{% endblock %}
+  
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/rsstyle.css')}}">
+    {% endblock %}
+    {% block content %}
+    {% include 'messages.html' %}
+    <section>
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="form-container">
+                    <h1>Seller's Registration Form</h1>
+                    <form action="" method="POST" name="registerForm">
+                        <label for="firstName">Name *</label>
+                        <input type="text" id="firstName" name="Name" maxlength="50" placeholder="Name" required />
 
+                        <label for="e-mail">E-mail address *</label>
+                        <input type="email" id="e-mail" name="EmailID" maxlength="100" placeholder="Email" required />
 
-{% block content %}
-<h2>SELLER REGISTRATION FORM</h3>
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="Password" pattern=".{8,}" required
+                            title="8 characters minimum" placeholder="*****" />
 
- <form action="" method="POST">
-<table align="center" cellpadding = "10">
- 
-<!--------------------- First Name ------------------------------------------>
-<tr>
-<td>Name *</td>
-<td><input type="text" name="Name" maxlength="50" placeholder="name"  required/>
-</td>
-</tr>
- 
-<!------------------------ Last Name --------------------------------------->
+                        <label for="password">Confirm Password *</label>
+                        <input type="password" id="confirm_password" pattern=".{8,}" required
+                            title="8 characters minimum" placeholder="*****" />
 
- 
-<!-------------------------- Email ID ------------------------------------->
-<tr>
-<td>Email ID *</td>
-<td><input type="email" name="EmailID" maxlength="100" placeholder="email.." required/></td>
-</tr>
+                        <p class="password-rules">Your password should contain at least 8 characters and 1 number.</p>
 
-<!---------------------------Password-------------------------------------->
-<tr>
-<td>Password *</td>
-<td> <input type="Password" name="Password" id="password" pattern=".{8,}"   required title="8 characters minimum" placeholder="*****(Min 8 characters)"/></td>
-</tr>
- 
-<!---------------------------Confirm Password-------------------------------------->
-<tr>
-<td>Confirm Password *</td>
-<td> <input type="Password" name="Password" id="confirm_password" pattern=".{8,}"   required title="8 characters minimum" placeholder="*****"/></td>
-</tr>
-<!-------------------------- Mobile Number ------------------------------------->
-<tr>
-<td>Mobile Number *</td>
-<td>
-<input type="tel" name="MobileNumber" maxlength="10" placeholder="7865XX" required/>
-</td>
-</tr>
- 
- 
-<!------------------------- Address ---------------------------------->
-<tr>
-<td>Address *<br /><br /><br /></td>
-<td><textarea name="Address" rows="10" cols="50" placeholder="Type_your_full_address_with_proper_landmarks_nearby...." required></textarea></td>
-</tr>
- 
-<!-------------------------- City ------------------------------------->
-<tr>
-<td>City *</td>
-<td><input type="text" name="City" maxlength="50" placeholder="Your_City" required/>
-</td>
-</tr>
- 
-<!-------------------------- Pin Code-------------------------------------->
-<tr>
-<td>Pin Code *</td>
-<td><input type="Number" name="PinCode" maxlength="6" placeholder="pin_code" required/>
-</td>
-</tr>
- 
-<!---------------------------- State ----------------------------------->
-<tr>
-<td>State *</td>
-<td><input type="text" name="State" maxlength="50" placeholder="Your_State" required/>
-</td>
-</tr>
- 
-<!------------------------------ Shop Name --------------------------------->
-<tr>
-<td>Shop Name *</td>
-<td><input type="text" name="shop" placeholder="Your_shop_name" required/></td>
-</tr>
+                        <label for="phoneNumber">Mobile Number</label>
+                        <input type="tel" id="phoneNumber" name="MobileNumber" maxlength="10" pattern=".{10,}"
+                            placeholder="Only digits..." required />
 
-<!------------------------- Bio ---------------------------------->
-<tr>
-    <td>Bio<br /></td>
-    <td><textarea name="Address" rows="5" cols="50" placeholder="(Optional)"></textarea></td>
-</tr>
+                        <label for="address">Address *</label>
+                        <textarea name="Address" rows="5" cols="40" placeholder="Your Residence Address with Landmark"
+                            required></textarea>
+                    
+                        <label for="city">City *</label>
+                        <input type="text" id="e-mail" name="City" maxlength="50" placeholder="City" required />
 
-<!------------------------------ Image of Shop --------------------------------->
-<tr>
-    <td>Shop Image *</td>
-    <td><input type="file" name="fileupload" value="fileupload" id="fileupload"></td>
-    </tr>
- 
-<!----------------------- Submit and Reset ------------------------------->
-<tr>
-<td colspan="2" align="center">
-<input type="submit" value="Submit" onclick="Validate()">
+                        <label for="pincode">Pincode *</label>
+                        <input type="number" id="Pincode" name="PinCode" maxlength="6" placeholder="Pincode" required />
 
-</td>
-</tr>
-</table>
+                        <label for="city">State *</label>
+                        <input type="text" id="State" name="State" maxlength="50" placeholder="State" required />
+
+                        <label for="shop">Shop Name *</label>
+                        <input type="text" id="shop" name="shop" placeholder="Shop Name" required />
+
+                        <label for="Bio">Bio *</label>
+                        <textarea name="Bio" rows="5" cols="40" placeholder="(Optional)"></textarea>
+
+                        <label for="fileupload">Shop Image *</label>
+                        <input type="file" name="fileupload" value="fileupload" id="fileupload">
+
+                        <input class="button" type="submit" value="submit" name="submit" onClick="Validate()" />
  
-</form>
-<script type="text/javascript">
-    function Validate() 
-    {
-        var password = document.getElementById("password").value;
-        var confirmPassword = document.getElementById("confirm_password").value;
-        if (password != confirmPassword) 
-        {
-            alert("Passwords do not match.");
-            return false;
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        function Validate() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
         }
-        return true;
-    }
-</script>
- 
+    </script>
 {% endblock %}

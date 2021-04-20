@@ -158,7 +158,7 @@ def update(id):
         user.email = request.form.get("email")
         user.number = request.form.get("number")
         user.address = request.form.get("address")
-        user.city = request.form.get("city")
+        user.city = request.form.get("city").lower()
         db.session.commit()
         return redirect(url_for('account', id = user.id))
     return render_template('customers/account.html', user = user)    
