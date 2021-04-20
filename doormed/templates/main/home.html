@@ -8,43 +8,37 @@ href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.
   <link rel="stylesheet" href="{{url_for('static', filename = 'css/home.css')}}">
 {% endblock %}
 {% block content %}
-    <div class="home">
-  <main>
-    <center>
-      <div class="section"></div>
-      <img class="responsive-img" src="{{url_for('static', filename = 'images/icon.png')}}">
-    </center>
-    <center>
-      <h4><span>DOORMED</span></h4>
-      <div class="section"></div>
-      <div class="container">
-        <div class=" row" id="login-box">
-          <div class='row'>
-            <center>
+<main>
+  <center>
+    <!-- <img class="responsive-img" src="icon.png"/><h4><span>DOORMED</span></h4><br> -->
+    <h5><span>Helping you in maintaining social distances while getting your medication</span></h5><br>
+    <!-- <hr> -->
+    <div class="section"></div>
+    <div class="container">
+      <div class=" row" id="login-box">
+        <div class='row'>
+          <center>
+            <div class='row'>
+                <a href="{{url_for('shops')}}"><button class="seller" >LOG IN AS  SELLER</button></a>
+            </div>
+          </center>
+        </div>
+        <div class='row'>
+          <center>
+            {% if id %}
               <div class='row'>
-                  <a href="{{url_for('shops')}}"><button >SELLER</button></a>
-              </div>
-            </center>
-          </div>
-          <div class='row'>
-            <center>
-              {% if id %}
-              <div class='row'>
-                  <a href="/main/{{id}}"><button >CUSTOMER</button></a>
+                  <a href="/main/{{id}}"><button class="customer">LOG IN AS A CUSTOMER</button></a>
               </div>
               {% else %}
               <div class='row'>
-                <a href="/customer_page"><button >CUSTOMER</button></a>
+                <a href="/customer_page"><button class="customer">LOG IN AS A CUSTOMER</button></a>
             </div>
             {% endif %}
-            </center>
-          </div>
+          </center>
         </div>
       </div>
-    </center>
-  </main>
-  <footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); padding: 0.2rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
-
-     </footer>
-</div>
+    </div>
+  </center>
+</main>
+<footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); text-align: center;padding: 5px;">Made with &#x2764 </footer>
 {% endblock %}
