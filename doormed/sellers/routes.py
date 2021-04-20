@@ -27,7 +27,7 @@ def register_seller():
             flash(f'This email or phone number is already taken....Change that one')
             return redirect(url_for('register_seller'))
         entry = Register_seller(name=name, email=email, password=hashed_password,
-                                number=number, address=address, city=city,
+                                number=number, address=address, city=city.lower(),
                                 pincode=pin, state=state, shop_name=shop, bio=bio, image=image)
         db.session.add(entry)
         db.session.commit()

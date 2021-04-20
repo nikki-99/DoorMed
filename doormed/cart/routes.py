@@ -49,7 +49,7 @@ def addcart(id):
         entry = CartItem(quantity = quantity, customer_id = user.id, product_id = product.id )
         db.session.add(entry)
         db.session.commit()
-        return redirect(url_for('cart', id = user.id))
+        return redirect(request.referrer)
     return render_template('carts/cart.html', user = user, shop= shop2)    
     
 
@@ -70,7 +70,21 @@ def deleteitem(id, id2):
         return redirect(url_for('cart', id = user.id))
     return redirect(url_for('cart', id = user.id))    
   
-      
+
+
+@app.route('/main/<int:id>/cart/update/<int:id2>', methods=['GET','POST'])
+# @login_required
+def updateitem(id, id2):
+    user = Register_user.query.filter_by(id = id).first()
+    # seller = Register_seller.query.filter_by(id = current_user.id).first() 
+    cart = CartItem.query.get_or_404(id2)
+    
+    if request.method == 'POST':
+        db.session.add(cart)
+        db.session.commit()
+        return redirect(url_for('cart', id = user.id))
+    return redirect(url_for('cart', id = user.id))    
+
 
    
 

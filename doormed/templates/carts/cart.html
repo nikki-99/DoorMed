@@ -33,8 +33,11 @@
                         <th>S No</th>
                         <th>Product Name</th>
                         <th>Price</th>
+                        
                         <th>Quantity</th>
+                       
                         <th>Subtotal</th>
+                      
                         <th>Delete</th>
                     </tr>
                     </thead>
@@ -50,12 +53,23 @@
                             </div>
                         </td>
                         <td>{{item.price}}</td>
-                        <td style="padding-left: 1.5rem;">{{ch.quantity}}</td>
+                       
+                        <td>
+                            <form method="POST" action="{{url_for('updateitem', id = user.id, id2 = ch.id)}}">
+                           <button class="fa"><i class="fas fa-minus"></i></button>  
+                          <input type="number" value="{{ch.quantity}}" min="1" style="width: 50px;
+                          height: 27px; outline: none; font-size: 15px">   
+                            <button class="fa"><i class="fas fa-plus"></i></button>
+                            </form>
+                            
+                            </td>
+                           
+  
                         <td>{{item.price * ch.quantity}}</td>
        {% set ns.sub = ns.sub + (item.price * ch.quantity)%}
-                     
+ 
 
-                        ]<td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.id }}">
+                        <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.id }}">
                             Delete
                           </button></td>
                     </tr>

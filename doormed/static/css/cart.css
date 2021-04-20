@@ -92,7 +92,7 @@ table{
 
 th{
     /* width: 200px; */
-    text-align: left;
+    text-align: center;
     padding: 5px;
     color: white;
     background-color:rgb(247, 68, 45);
@@ -137,7 +137,7 @@ td:last-child{
     text-align: right;
 }
 th:last-child{
-    text-align: right;
+    text-align: center;
 }
 #tot{
     border-top: 2px solid black;
@@ -214,6 +214,13 @@ th:last-child{
     .box{
         width: 93%;
     }
+}
+
+i{
+  padding: 0.2rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 
@@ -339,3 +346,14 @@ body {
       transform: translate(0, 0);
     }
   }
+
+
+
+button.fa{
+  border: none;
+  outline: none;
+  color: black;
+  /* width: 30px; */
+  height: 10px;
+  background: none;
+}  
