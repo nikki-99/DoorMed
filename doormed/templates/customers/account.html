@@ -1,135 +1,70 @@
 {% extends 'base.html' %}
 {% block header %}
- 
-    <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
-    {% endblock %}
 
-
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
+{% endblock %}
 {% block content %}
-    <div class="content">
-        <div class="head">
-            <div class="imgBox">
 
+ {% include 'navbar.html' %}
+
+    <main class="container1">
+        <section class="left">
+            <div class="profile-card">
+                <img src="{{url_for('static', filename = 'images/profile.svg')}}" alt="" class="profile-img">
+                <div class="card-name">
+                    <p class="hello">Hello</p>
+                    <p class="name">{{user.name}}</p>
+                </div>
             </div>
-            <div class="bio">
-                <div class="name">
-                <h2>{{user.name}}</h2>
-                </div>
-                <div class="intro">
-                <p>Email: <b>{{user.email}}</b></p>
-                <p>Number: <b>{{user.number}}</b></p>
-                <p>Address: <b>{{user.address}}</b></p>
-                <p>City: <b>{{user.city}}</b></p>
-                <p>Pincode: <b>{{user.pincode}}</b></p>
-                
-                
-                
-                </div>
+            <div class="sidebar">
+                <a href="#" class="personal-info side-opt">Personal Information</a>
+                <a href="#" class="purchase side-opt">Purchase History</a>
               
-
-
             </div>
-           
-        </div>
-        <input class="btn btn-sm btn-warning" action="action" onclick="window.history.go(-1); return false;" type="submit" value="Back" style="width: 5%; margin-left: 2rem;"/>
-        <a class="btn btn-sm btn-success float-right m-4" id="button">Update</a>
-       
-
-        <form method="POST" action="/main/{{user.id}}/account/delete">
-            
-            <button style="background-color: #222432; border: none;"> <i class="fas fa-user-minus fa-2x" id="out"></i></button> 
-            </form>
-      
-        <div class="popup">
-            <div class="content">
-                <i class="fas fa-user fa-4x"id="user"></i>
-                <div class="close">
-                    <i class="fas fa-times" style="color: black;"></i>
-            </div>
-               <form method="POST" action="/main/{{user.id}}/account/update">
-        
-                   
-                   <input type="text" placeholder="Email" value="{{user.email}}" name="email" required>
-                   
-                   <input type="number" placeholder="Phone No"value="{{user.number}}" name="number" required>
+            <div class="log-out">
                 
-                   <input type="text" placeholder="Address"value="{{user.address}}" name="address" required>
-    
-                   <input type="text" placeholder="City" value="{{user.city}}" name="city" required>
-            
-                 <input type="submit" placeholder="Update" style="background: linear-gradient(to bottom, lightblue, blue);width: 20%;
-                 color: white;
-                 border: navajowhite;">
-               </form>
+        <form method="POST" action="/main/{{user.id}}/account/delete" style="height: 5vh; text-align: center;">
+                <button class="logOut">Delete</button>
+                </form>
             </div>
+        </section>
+        <section class="right">
+            <p class="heading">Personal Information</p>
+            <form method="POST" action="/main/{{user.id}}/account/update">
+            <div class="details">
+                <div class="info">
+                    <div class="person-name info-box">
+                        <p class="label">Name</p>
+                        <input type="text" class="personName field" value="{{user.name}}">
+                    </div>
+                    <div class="Email info-box">
+                        <p class="label">Email</p>
+                        <input type="email" class="email-id field" value="{{user.email}}" name="email">
+                    </div>
+                    <div class="mobile info-box">
+                        <p class="label">Mob</p>
+                        <input type="number" class="mobile-no field" value="{{user.number}}" name="number">
+                    </div>
+                    <div class="address info-box">
+                        <p class="label">Address</p>
+                        <input type="text" class="address-text field" value="{{user.address}}" name="address">
+                    </div>
+                    <div class="city info-box">
+                        <p class="label">City</p>
+                        <input type="text" class="city-name field" value="{{user.city}}" name="city">
+                    </div>
+                    <div class="pin info-box">
+                        <p class="label">Pin</p>
+                        <input type="number" class="pin-code field" value="{{user.pincode}}" >
+                    </div>
                 </div>
-        <div class="main">
-            <div class="container">
-
-                <h2 style="color: blue; padding: 1.5rem; text-align: center;">Purchase History!</h2>
-          
-                <table class="table table-sm table-condensed table-striped table-hover" style="text-align: center";>
-                    <thead>
-                        <th>No</th>
-                        
-                        <th>Invoice No</th>
-                        <th>Image</th>
-                        <th>Products</th>
-                        
-                        <th>Shops</th>
-                        <th>Date</th>
-                        <th>Quantity</th>
-                        <th>Price(Rs)</th>
-                        <th>Total</th>
-                      
-                        
-                       
-                      
-                    </thead>
-                    <tbody>
-                      
-                     
-                      <tr>
-                       
-                          <td>1</td>
-                       <td>12563grg</td>
-                          <td><img src="" alt="no" width="40" height="30"></td>
-                          <td>Famocid</td>
-                          <td>Apollo Clinic</td>
-                          <td>16.04.21</td>
-                          <th>5</th>
-                          
-                         
-                         
-
-                          <td>120</td>
-                          <td>600</td>
-                
-                          
-                      </tr>
-
-                                <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-
-         
-            
-                    
-                    </tbody>
-                </table>
+                <div class="profile-picture">
+                    <img src="{{url_for('static', filename = 'images/profile.svg')}}" alt="" class="profile-pic">
+                    <button class="update" type="submit">Save Changes</button>
+                   
+                </div>
             </div>
-      </div>
-        </div>
-        <script>
-            document.getElementById("button").addEventListener('click', function(){
-                document.querySelector(".popup").style.display = "flex";
-            })
-            document.querySelector(".close").addEventListener("click", function(){
-                document.querySelector(".popup").style.display = "none";
-            })
-        </script>
-        <footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); padding: 0.2rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
-            <h3><a href="/contact" style="color: white; margin-left: 2rem;">Contact Us</a></h3>
-             </footer>
+            </form>
+        </section>
+    </main>
 {% endblock %}

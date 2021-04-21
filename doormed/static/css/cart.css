@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+
 }
 
 /* width */
@@ -26,23 +26,25 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
 }
+.cart-li{
+  display: flex;
+  height: 9vh;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 20px;
+}
+.cart-li p{
+  margin-top: 1rem;
+}
+
 body{
   height: 100vh;
   width: 100%;
   position: relative;
   /* overflow: hidden; */
 }
-header{
-  min-height: 8vh;
-  background: #43C47B;
-  
-  
-  display: flex;
-  align-items: center;
 
-  justify-content: space-between;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
-}
 .main{
   min-height: 88vh;
   width: 100%;

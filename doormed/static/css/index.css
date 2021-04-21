@@ -1,128 +1,164 @@
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
-.content{
-    height: 100vh;
-    width: 100%;
-    /* background-color: brown; */
-    position: relative;
+
+button{
+    outline: none;
 }
-.content .head{
-    height: 30vh;
-    width: 100%;
+.container1{
     display: flex;
-    flex-direction: row;
-    position: relative;
+    justify-content: space-between;
+    min-height: 90vh;
 }
 
-.content  .head .bio{
-    height: 30vh;
-    width: 100%;
+.left{
+    width: 30%;
+    margin-left: 40px;
+    margin-top: 10px;
     display: flex;
-    background: linear-gradient(to top, lightblue, rgb(221, 92, 111));
-    border-radius: 20px;
-
+    flex-direction: column;
+    height: 70vh;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+.profile-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    width: 75%;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.192);
+}
+.profile-img{
+    height: 60px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.card-name{
+    position: absolute;
+    left: 37%;
+    line-height: 27px;
+}
+a{
+    color: white;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
+}
+.logOut{
+    height: 10vh;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: white;
+}
+.logOut:hover{
+    color: red;
 
 }
-.content  .head .bio .intro{
-    width: 70%;
+.name{
+    color: green;
+    font-weight: 600;
+    font-size: 16px;
+}
+.sidebar,.log-out{
    display: flex;
    flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   height: 30vh;
+   box-shadow: 0px 2px 5px rgb(0,0,0,0.192);
+   width: 75%;
 }
-.content  .head .bio .name{
-    display: flex;
-    width: 30%;
-    align-items: center;
-    justify-content: center;
-    
-}
-.content  .head .bio .name h2{
-    font-size: 55px;
-    color: rgb(3, 3, 105);
-}
-.content  .head .bio .intro p{
-    /* margin-right: 10rem ; */
-    /* padding: 0.1rem; */
-    /* color: white; */
-    font-size: 15px;
-    font-weight: 600;
-    height: fit-content;
-}
-.main{
-    width: 100%;
-
-}
-.container{
-    margin-top: 2rem;
-
-}
-
-
-
-.popup{
-    background: rgba(0,0,0,0.8);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: 0.5s;
-    
-}
-form a{
-    border: 1px s black;
+.side-opt,.logOut{
     padding: 0.8rem;
-    background: brown;
+    text-decoration: none;
+    border-bottom: 0.2px solid rgba(184, 184, 184, 0.384);
+    text-align: center;
+    color: green;
+    font-weight: 500;
+}
+.logOut{
+    color: red;
+}
+.side-opt:hover{
+    background-color:white;
+    color: green;
+}
+
+.right{
+    height: 82vh;
+    width: 70%;
+    margin-top: 27px;
+    margin-right: 50px;
+    box-shadow: 0px 2px 6px rgb(0,0,0,0.192);
+    /* display: none; */
+}
+.heading{
+    text-align: center;
+    padding-top: 20px;
+    font-weight: 600;
+    color: green;
+    font-size: 18px;
+}
+.details{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 65vh;
+}
+.info-box{
+    display: flex;
+    padding: 0.7rem 1rem;
+    border: 0.2px solid rgba(214, 214, 214, 0.788);
+    align-items: center;
+}
+.label{
+    font-size: 10px;
+    color: grey;
+    margin-right: 15px;
+}
+.field{
+    color: green;
+    font-weight: 500;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.profile-picture{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.profile-pic{
+    border: 4px solid grey;
+    border-radius: 50%;
+    height: 12rem;
+    margin-top: -20px;
+}
+.update{
+    padding: 1rem, 0.8rem;
+    background-color: #4FB079;
+    height: 40px;
+    margin-top: -100px;
     color: white;
-    border-radius: 10px;
-    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgb(0,0,0,0.192);
     cursor: pointer;
-    transition: 0.5s;
-}
-.popup .content{
-    height: 470px;
-    width: 500px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-
-}
-form{
-    
-    padding: 1rem;
-}
-input{
-    margin: 20px auto;
-    display: block;
-    width: 50%;
-    padding: 10px;
-    
     outline: none;
-
 }
-.close{
-    position: absolute;
-    top: -3px;
-    right: 4px;
-    
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-    color: black;
-    
-}
-.close i{
-    color: black;
-}
-#user{
-    color: darkblue;
+.update:hover{
+    background-color: #479b6b ;
 }

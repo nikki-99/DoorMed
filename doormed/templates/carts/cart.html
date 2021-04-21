@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/cart.css')}}">
 {% endblock %}
 {% block content %}
-  <header>
-      <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" style="margin-left: 2rem;">
-    <i class="fas fa-user fa-2x"></i>
-  </header>
+{% include 'navbar.html' %}
   
   <div class="main">
     
