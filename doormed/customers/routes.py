@@ -160,6 +160,7 @@ def update(id):
         user.address = request.form.get("address")
         user.city = request.form.get("city").lower()
         db.session.commit()
+        flash(f'Your account has been updated!')
         return redirect(url_for('account', id = user.id))
     return render_template('customers/account.html', user = user)    
 

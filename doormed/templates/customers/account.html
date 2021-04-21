@@ -23,13 +23,15 @@
             </div>
             <div class="log-out">
                 
-        <form method="POST" action="/main/{{user.id}}/account/delete" style="height: 5vh; text-align: center;">
+        <form method="POST" action="/main/{{user.id}}/account/delete" style="text-align: center;">
                 <button class="logOut">Delete</button>
                 </form>
             </div>
         </section>
         <section class="right">
             <p class="heading">Personal Information</p>
+            {% include 'messages.html' %}
+
             <form method="POST" action="/main/{{user.id}}/account/update">
             <div class="details">
                 <div class="info">
