@@ -31,41 +31,41 @@ body::after{
   width: 40%;
   /* margin: 190px 8%; */
   font-weight: 600;
-  text-shadow: 2px 2px 5px white;
+  /* text-shadow: 2px 2px 5px white; */
+  color: white;
+  z-index: 10;
 
 }
-.con h2{
-  text-align: justify;
-}
-.con p{
-  text-align: justify;
-}
+
 .centre{
   /* position: absolute; */
   /* top: 50%; */
   /* left: 50%; */
   /* transform: translate(30%, -50%); */
-  width: 40%;
+  width: 30%;
+  height: 500px;
   text-align: center;
   z-index: 999;
-  /* max-width: 500px; */
-  /* max-height: 350px; */
-  text-align: center;
+  
   padding: 30px 8px;
   position: relative;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+  background:transparent;
+  backdrop-filter: blur(30px) brightness(70%);
+ 
+  /* box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75); */
   /* background: white; */
 }
 .centre header{
   /* position: fixed; */
+  margin-top: -20px;
   color: white;
   font-size: 30px;
   font-weight: 600;
-  margin: 0 0 35px 0;
+  /* margin: 0 0 35px 0; */
+  padding: 15px 0;
   text-align: center;
-  border-bottom: 1px solid silver;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.767);
 }
 .centre form{
   padding: 0 40px;
@@ -76,8 +76,12 @@ form .txt_field{
   border-bottom: 2px solid #adadad;
   margin: 30px 0;
 }
+.input-tag{
+  margin-top: 80px;
+}
 .txt_field input{
   width: 100%;
+  
   padding: 0 5px;
   height: 40px;
   font-size: 16px;
@@ -89,7 +93,7 @@ form .txt_field{
   position: absolute;
   top: 50%;
   left: 5px;
-  color: black;
+  color: white;
   transform: translateY(-50%);
   font-size: 16px;
   pointer-events: none;
@@ -117,7 +121,7 @@ form .txt_field{
 
 .pass{
   margin: -5px 0 20px 5px;
-  color: #0b528d;
+  color: white;
   cursor: pointer;
   float: right;
   margin-top: -25px;
@@ -126,31 +130,34 @@ form .txt_field{
   text-decoration: underline;
 }
 input[type="submit"]{
-  width: 40%;
-  height: 40px;
-  border: 1px solid;
+  padding: 0.6rem 2.5rem;
+  border: none;
   background: black;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 700;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
   color: #e9f4fb;
   cursor: pointer;
   outline: none;
+  margin-top: 20px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
 }
 input[type="submit"]:hover{
   border-color: #2691d9;
   transition: .5s;
 }
 .signup{
-  margin: 30px 0;
+  margin: 10px 0;
   text-align: center;
   font-size: 16px;
   color: white;
+  
 
 }
 .signup a{
-  color: #077fcf;
+  color: white;
   text-decoration: none;
+  font-weight: 600;
 }
 .signup a:hover{
   text-decoration: underline;

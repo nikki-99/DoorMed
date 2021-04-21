@@ -8,9 +8,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.
   <link rel="stylesheet" href="{{url_for('static', filename = 'css/home.css')}}">
 {% endblock %}
 {% block content %}
+<div class="bg">
+ 
+
 <main>
   <center>
-    <!-- <img class="responsive-img" src="icon.png"/><h4><span>DOORMED</span></h4><br> -->
+    <div class="box">
+    <img class="responsive-img" src="{{url_for('static', filename = 'images/icon2.png')}}"/><h4><p>DOORMED</p></h4>
+  </div>
     <h5><span>Helping you in maintaining social distances while getting your medication</span></h5><br>
     <!-- <hr> -->
     <div class="section"></div>
@@ -40,5 +45,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.
     </div>
   </center>
 </main>
-<footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); text-align: center;padding: 5px;">Made with &#x2764 </footer>
+</div>
+
+
 {% endblock %}

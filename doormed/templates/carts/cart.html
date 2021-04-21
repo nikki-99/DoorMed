@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block header %}
   
@@ -5,76 +6,65 @@
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/cart.css')}}">
 {% endblock %}
 {% block content %}
-    <div class="top">
-        <input action="action" onclick="window.history.go(-1); return false;" type="submit" value="&larr; back to Pharmacy" style="background: darkolivegreen;
-        color: white;
-        padding: 0.5rem;
-        border-radius: 10px;
-        margin-left: 1rem;
-        margin-top: 2rem;">
-       
-      
-    </div>
-    <div class="whole">
-   {% include 'messages.html' %}
-            <div class="cart">
-                {% if shop %}
-                <div class="order">
-                   
-                    <h3>Order from </h3>
-                    <h5>{{shop.shop_name}}</h5>
-                    <p>{{shop.address}}</p>
-                    <p>{{shop.city}}</p>
-                    
-                </div>
-                <table  class="table table-sm table-condensed table-striped table-hover ">
-                   <thead>
-                    <tr>
-                        <th>S No</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        
-                        <th>Quantity</th>
-                       <th>Update</th>
-                        <th>Subtotal</th>
-                      
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% set ns = namespace(sub=0) %}
-                    {% for item,ch in items %}
-                    <tr>
-                        <td>{{loop.index}}</td>
-                        <td>
-                            <div class="cart-info">
-                              
-                                <p>{{item.name}}</p>
-                            </div>
-                        </td>
-                        <td>{{item.price}}</td>
-                       
-                        <td>
-                            <form method="POST" action="{{url_for('updateitem', id = user.id, id2 = ch.id)}}">
-                      
-                          <input type="number" value="{{ch.quantity}}" min="1" style="width: 50px" name="quantity"
-                          height: 27px; outline: none; font-size: 15px">   
-                         <button><input type="submit" placeholder="Update">Update</button> 
-                           
-                            </form>
-                            
-                            </td>
-                           
+  <header>
+      <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" style="margin-left: 2rem;">
+    <i class="fas fa-user fa-2x"></i>
+  </header>
   
-                        <td>{{item.price * ch.quantity}}</td>
-       {% set ns.sub = ns.sub + (item.price * ch.quantity)%}
- 
+  <div class="main">
+    
+    {% if shop %}
+    <div class="left">
+ <div class="head">
+  <div class="shop">
+      
+    <span>ORDER FROM <h2>{{shop.shop_name}}</h2></apan>
+        <p>{{shop.address}}</p>
+        <p>{{shop.city}}</p>
+     <p>{{shop.pincode}}</p>
+ </div>
+ <div class="clear">
+   <a href="/main/{{user.id}}/clearcart" style="text-decoration: none;">Clear Cart</a>
+ </div>
+ </div>
+    
+     <div class="carts">
+        {% include 'messages.html' %}
+        {% set ns = namespace(sub=0) %}
+        {% for item,ch in items %}
+<div class="cart">
+  <h4 style="margin: 1rem 1rem;">{{loop.index}}.</h4>
+ <div class="imgBox">
 
-                        <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.id }}">
-                            Delete
-                          </button></td>
-                    </tr>
-                    <!-- Modal -->
+ </div>
+ <div class="all">
+   <div class="alls">
+   <h3 style="color: #43C47B;">{{item.name}}</h3>
+   
+   <div class="btn">
+    <p>Quantity:</p>
+
+    <form method="POST" action="{{url_for('updateitem', id = user.id, id2 = ch.id)}}">
+                      
+      <input type="number" value="{{ch.quantity}}" min="1" style="width: 50px" name="quantity"
+      height: 27px; outline: none; font-size: 15px">   
+   <small style="color: blue;"> <input type="submit" placeholder="UPDATE">UPDATE</small> 
+       
+        </form>
+     
+
+  
+  
+ </div>
+ <small><button style="background: none; border: none; outline: none; color: red; cursor: pointer;" type="button"data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.id }}">
+  REMOVE
+ </button></small>
+ </div>
+
+<div class="sub">
+ <p>Subtotal: <b>{{item.price * ch.quantity}}</b></p>
+ {% set ns.sub = ns.sub + (item.price * ch.quantity)%}
+</div>
 <div class="modal fade" id="exampleModal-{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -95,57 +85,70 @@
     </div>
   </div>
   </div>
+</div>
+</div>
+  {% endfor %}
 
-                    {% endfor %}
-                </tbody>
-                </table>
-        
-                <div class="total">
-                    <table>
-                        <tr>
-                            <td>Total</td>
-                            <td>{{ns.sub}}</td>
-                        </tr>
-                       
-                        
-                    </table>
-                </div>
-        
-<a href="/main/{{user.id}}/clearcart">Clear Cart</a>
-         
-            {% else %}
-            <h1>Your cart is empty</h1>
-            
-            {% endif %}
 
-            </div>
+
+   
+
+           
+
+
+
         
-            <div class="checkout">
-                <h1>Secure Checkout</h1>
-                <div class="box">
-                    <h4>{{user.name}}</h4>
-                    <p>You are logged in</p>
-                </div>
-                <div class="box">
-                    <h4>Delivery Address</h4>
-                    <p><b>Home</b> {{user.address}} {{user.pincode}}</p>
-                </div>
-                <div class="box box-2 ">
-                    <h3>Select Payment Method</h3>
-                    <p>Currently we are accepting only COD orders</p>
-                    <input type="checkbox" id="COD" name="COD" value="COD" />
-                    <label>Cash on Delivery</label><br><br>
-                    <input type="checkbox" disabled id="COD" name="COD" value="COD" />
-                    <label>Wallets or Upi</label><br><br>
-                    <input type="checkbox" disabled id="COD" name="COD" value="COD" />
-                    <label>Credit or Debit Card</label>
-                </div>
-                <button id="order">Place Order</button>
-        
-            </div>
-            </div>
-            <footer style="background-color: rgb(255, 254, 254); color: rgb(252, 0, 0); padding: 0.1rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
-                <h3><a href="/contact" style="color: rgb(0, 0, 0); margin-left: 2rem;">Contact Us</a></h3>
-                 </footer>
-    
+                 
+
+
+    </div>
+
+  
+  </div>
+  
+  <div class="right">
+    <div class="details">
+<h3 style="text-align: center; margin-top: 0.5rem;">Price Details</h3>
+<hr>
+<div class="box">
+  <div class="price">
+<p>Price: </p>
+<b >{{ns.sub}}</b>
+</div>
+<div class="price">
+<p>Delivery Charges: </p>
+<b >0</b>
+</div>
+<hr>
+<div class="price">
+<p>Total:</p>
+<b >{{ns.sub}}</b>
+</div>
+<hr>
+</div>
+<h3>Delivery Address</h3>
+<p>{{user.address}} {{user.pincode}}</p>
+
+    </div>
+    <div class="pay">
+ <h4>Select Payment Method</h4>
+ <hr>
+ <div class="opt">
+ <input type="radio" id="cash" name="cash" value="cash">
+  <label for="cash">Cash On Delivery</label><br>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Wallets or UPI</label><br>
+  <input type="radio" id="other" name="gender" value="other">
+  <label for="female">Credit or Debit Card</label><br>
+    </div>
+    <div class="order">
+    <a>Place Order</a>
+    </div>
+    </div>
+  </div>
+
+  {% else %}
+  <h1 style="margin: auto;">Your cart is empty</h1>
+  {% endif %}
+  </div>
 {% endblock %}

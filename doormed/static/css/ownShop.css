@@ -117,7 +117,7 @@
     font-weight: 600;
     font-size: 45px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 5px gray;
+    /* text-shadow: 2px 2px 5px gray; */
 }
 .board{
     
@@ -138,6 +138,10 @@ th{
 td{
     font-weight: 600;
     color: #32B47D;
+    margin: 20px;
+}
+tr{
+  padding: 10px;
 }
 
 #pop{
@@ -154,7 +158,7 @@ td{
     top: 15%;
     left: -5%;
     border-radius: 6px;
-    box-shadow: 2px 2px 5px gray;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.411);
     display: flex;
     flex-direction: column;
     /* align-items: center; */

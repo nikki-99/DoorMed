@@ -16,7 +16,8 @@
     <div class="main">
         <div class="dashboard">
           <div class="imgBox" id="pop">
-
+     
+            <img src="{{seller.image}}" alt="no">
           </div>
           <div class="links">
            <a id="button1" > <i class="fas fa-pen-alt fa-2x"></i></a>
@@ -67,7 +68,7 @@
                       <tr>
                        
                           <td>{{loop.index}}</td>
-                          <td><a href="#" style="text-decoration: none; color: black;">{{product.catagory}}</a></td>
+                          <td>{{product.catagory}}</td>
                           <td>{{product.name}}</td>
                           <td><img src="" alt="no" width="40" height="30"></td>
                           <td>{{product.price}}</td>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="119.648" height="47.77" viewBox="0 0 119.648 47.77">
+  <g id="Group_38" data-name="Group 38" transform="translate(0 0)">
+    <g id="pills" transform="translate(0 0)">
+      <g id="Group_7" data-name="Group 7">
+        <g id="Group_2" data-name="Group 2" transform="translate(0 23.888) rotate(-45)">
+          <g id="Group_1" data-name="Group 1" transform="translate(0 0)">
+            <path id="Path_1" data-name="Path 1" d="M31.189,2.671A9.077,9.077,0,0,0,18.34,2.658l-.075.075-7.589,7.589a.937.937,0,0,0-.356.356L2.684,18.305A9.062,9.062,0,1,0,15.527,31.092l.009-.009,7.627-7.655a.947.947,0,0,0,.272-.272l7.617-7.636A9.088,9.088,0,0,0,31.189,2.671Zm-16.97,27.1A7.205,7.205,0,1,1,4,19.614l7.158-7.158L21.33,22.645ZM29.744,14.193,22.651,21.3l-10.17-10.17,7.1-7.1A7.185,7.185,0,1,1,29.744,14.193Z" fill="#fff"/>
+          </g>
+        </g>
+        <path id="Path_4" data-name="Path 4" d="M1.62,0A1.62,1.62,0,1,1,0,1.62,1.62,1.62,0,0,1,1.62,0Z" transform="translate(18.773 26.701)" fill="#fff"/>
+      </g>
+      <g id="Group_6" data-name="Group 6" transform="translate(30.907 33.437) rotate(-45)">
+        <g id="Group_5" data-name="Group 5" transform="translate(0 0)">
+          <path id="Path_3" data-name="Path 3" d="M14.964,2.6l-.009-.009a8.694,8.694,0,0,0-12.3-.081l-.081.081A8.764,8.764,0,1,0,14.964,2.6ZM1.81,8.789a6.952,6.952,0,0,1,11.184-5.52L3.247,13.026A6.993,6.993,0,0,1,1.81,8.789ZM13.681,13.7a6.958,6.958,0,0,1-9.151.6l9.748-9.748A6.938,6.938,0,0,1,13.681,13.7Z" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_8" data-name="Group 8" transform="translate(62.178 21.046) rotate(45)">
+        <g id="Group_5-2" data-name="Group 5" transform="translate(0 0)">
+          <path id="Path_3-2" data-name="Path 3" d="M14.964,2.6l-.009-.009a8.694,8.694,0,0,0-12.3-.081l-.081.081A8.764,8.764,0,1,0,14.964,2.6ZM1.81,8.789a6.952,6.952,0,0,1,11.184-5.52L3.247,13.026A6.993,6.993,0,0,1,1.81,8.789ZM13.681,13.7a6.958,6.958,0,0,1-9.151.6l9.748-9.748A6.938,6.938,0,0,1,13.681,13.7Z" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+    <text id="RMED" transform="translate(71.648 39.954)" fill="#fff" font-size="17" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="0" y="0">RMED</tspan></text>
+  </g>
+</svg>

@@ -83,6 +83,7 @@ def updateitem(id, id2):
     if request.method == 'POST':
         db.session.add(cart)
         db.session.commit()
+        flash(f'Cart updated!')
         return redirect(url_for('cart', id = user.id))
     return redirect(url_for('cart', id = user.id))    
 
