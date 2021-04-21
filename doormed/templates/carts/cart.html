@@ -133,13 +133,15 @@
  <div class="opt">
  <input type="radio" id="cash" name="cash" value="cash">
   <label for="cash">Cash On Delivery</label><br>
-  <input type="radio" id="female" name="gender" value="female">
+  <input type="radio" id="female" name="gender" value="female" disabled>
   <label for="female">Wallets or UPI</label><br>
-  <input type="radio" id="other" name="gender" value="other">
+  <input type="radio" id="other" name="gender" value="other" disabled>
   <label for="female">Credit or Debit Card</label><br>
     </div>
     <div class="order">
-    <a>Place Order</a>
+        <form action="/main/{{user.id}}/order" method="POST">
+   <button style="border: none; outline: none;"> <a style="color: white;">Place Order</a></button>
+    </form>
     </div>
     </div>
   </div>

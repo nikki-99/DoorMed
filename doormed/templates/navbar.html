@@ -46,7 +46,15 @@ a:hover{
 
 
 <div class="navbar">
+    {% if id %}
+    <a href="/customer_page">
     <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
+    </a>
+    {% else %}
+    <a href="/main/{{user.id}}">
+        <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
+        </a>
+        {% endif %}
     <!-- <div class="search-bar">
         <input type="text" placeholder="Search shops nearby..." class="search-input">
         <img src="search.svg" alt="" class="search-icon">

@@ -23,6 +23,7 @@ class Register_user(db.Model, UserMixin):
     number = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), unique=False, nullable=False)
     cartitems1 = db.relationship('CartItem', backref='Customer')
+    orders1 = db.relationship('Order', backref='Customer')
 
     def _repr_(self):
         return '<Register_user %r>' % self.name
@@ -82,6 +83,13 @@ class CartItem(db.Model):
 
 
 
+class Order(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    invoice = db.Column(db.String(15), unique = True, nullable=False)
+    status = db.Column(db.String(50), nullable = False, default = 'Pending')
+    total = db.Column(db.Numeric(10,2), nullable= False)
+    cust_id = db.Column(db.Integer, db.ForeignKey('register_user.id'), nullable=False)
+    order_date = db.Column(db.DateTime)
 
 
 
