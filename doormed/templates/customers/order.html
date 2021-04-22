@@ -11,13 +11,16 @@
     {% include 'navbar.html' %}
 
     <main class="container1">
+        {% if carts %}
         <section class="left">
            <div class="text" style="text-align: center;">
               {% include 'messages.html' %}
            </div>
+           {% if shop %}
            <div class="shop-name" style="text-align: center;">
-               <h2>Apollo Clinic</h2>
+               <h2>{{shop.shop_name}}</h2>
            </div>
+           {% endif %}
            <div class="details">
                <div id="all">
                <p>Invoice No: </p>
@@ -90,6 +93,7 @@
                    
 
         </section>
+        {% endif %}
     </main>
 
 {% endblock %}

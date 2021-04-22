@@ -147,7 +147,10 @@ def shop_details(id):
 @login_required
 def account(id):
     user = Register_user.query.filter_by(id = id).first()
-    return render_template('customers/account.html', user = user)
+    orders = Order.query.filter_by(cust_id = user.id).all()
+
+
+    return render_template('customers/account.html', user = user, orders = orders)
 
 
 @app.route('/main/<int:id>/account/update', methods= ['GET', 'POST'])
@@ -176,7 +179,8 @@ def delete(id):
         db.session.commit()
         return redirect(url_for('customer_page'))
     return render_template('customers/account.html', user = user)   
-        
+
+
 @app.route('/main/<int:id>/order', methods= ['GET', 'POST'])
 @login_required
 def order(id):
@@ -185,21 +189,28 @@ def order(id):
         sum = 0
         carts1 = []
         user = Register_user.query.filter_by(id = id).first() 
+        
         invoice = secrets.token_hex(5)
         carts = CartItem.query.filter_by(customer_id = user.id).all()
-        for cart in carts:
-            product = Products.query.filter_by(id = cart.product_id).first()
-            sum += cart.quantity * product.price
-            products.append(product)
-            carts1.append(cart)
-            db.session.delete(cart)
+        # prod = Products.query.filter_by(id = cart.product_id).first()
+        if carts:
+            for cart in carts:
+                product = Products.query.filter_by(id = cart.product_id).first()
+                shop = Register_seller.query.filter_by(id = product.shop_id).first()  
+                sum += cart.quantity * product.price
+                products.append(product)
+                carts1.append(cart)
+                db.session.delete(cart)
+                db.session.commit()
+          
+            entry = Order(invoice = invoice, cust_id = user.id, total = sum, order_date = datetime.now())
+            db.session.add(entry)
             db.session.commit()
-        entry = Order(invoice = invoice, cust_id = user.id, total = sum, order_date = datetime.now())
-        db.session.add(entry)
-        db.session.commit()
-        orders = Order.query.filter_by(cust_id = user.id).order_by(Order.order_date.desc()).first()
-        flash(f'Your order has been accepted!')
-        return render_template('customers/order.html', user = user, order = orders, carts = carts, products = products , ord_and_prod = zip(products,carts1)) 
+            orders = Order.query.filter_by(cust_id = user.id).order_by(Order.order_date.desc()).first()
+            flash(f'Your order has been accepted!')
+            return render_template('customers/order.html', user = user, order = orders, carts = carts, products = products , ord_and_prod = zip(products,carts1), shop = shop) 
+
+        return render_template('customers/order.html', user = user) 
 
 
 
