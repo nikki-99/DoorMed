@@ -148,9 +148,11 @@ def shop_details(id):
 def account(id):
     user = Register_user.query.filter_by(id = id).first()
     orders = Order.query.filter_by(cust_id = user.id).all()
+    order = Order.query.filter_by(cust_id = user.id).first()
+    ordered_shop = Register_seller.query.filter_by(id = order.sh_id).first()
 
 
-    return render_template('customers/account.html', user = user, orders = orders)
+    return render_template('customers/account.html', user = user, orders = orders, shop = ordered_shop)
 
 
 @app.route('/main/<int:id>/account/update', methods= ['GET', 'POST'])
@@ -203,7 +205,7 @@ def order(id):
                 db.session.delete(cart)
                 db.session.commit()
           
-            entry = Order(invoice = invoice, cust_id = user.id, total = sum, order_date = datetime.now())
+            entry = Order(invoice = invoice, cust_id = user.id, total = sum, order_date = datetime.now(), sh_id = shop.id)
             db.session.add(entry)
             db.session.commit()
             orders = Order.query.filter_by(cust_id = user.id).order_by(Order.order_date.desc()).first()

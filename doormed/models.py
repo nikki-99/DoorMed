@@ -65,6 +65,7 @@ class Register_seller(db.Model, UserMixin):
     bio = db.Column(db.String(120),default= 'Best Shop')
     image = db.Column(db.String(120), nullable = False)
     products = db.relationship('Products', backref='shop', lazy=True, cascade="all,delete")
+    orders2 = db.relationship('Order', backref='Seller')
 
     def __repr__(self):
         return '<Register_seller %r>' % self.name
@@ -88,7 +89,7 @@ class Order(db.Model):
     invoice = db.Column(db.String(15), unique = True, nullable=False)
     status = db.Column(db.String(50), nullable = False, default = 'Pending')
     total = db.Column(db.Numeric(10,2), nullable= False)
-    
+    sh_id = db.Column(db.Integer, db.ForeignKey('register_seller.id'), nullable=False)
     cust_id = db.Column(db.Integer, db.ForeignKey('register_user.id'), nullable=False)
     order_date = db.Column(db.DateTime)
 
