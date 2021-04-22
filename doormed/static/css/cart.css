@@ -243,13 +243,13 @@ a{
   padding: 0.7rem 1rem;
   outline: none;
   /* text-shadow: 2px 2px 2px black; */
-  font-weight: 600;
+  font-weight: 500;
 
   cursor: pointer;
 }
 i{
   color: white;
-  margin-right: 5rem;
+  /* margin-right: 5rem; */
   
 }
 small{
