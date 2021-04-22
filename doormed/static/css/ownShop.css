@@ -259,7 +259,7 @@ tr{
 .container2{
     /* background-color: aqua; */
     height: 100vh;
-    width: 100%;
+    width: 80%;
     position: relative;
     z-index: 1;
     display: flex;

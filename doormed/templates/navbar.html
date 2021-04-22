@@ -17,6 +17,10 @@
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.6);
+    position: fixed;
+    z-index: 100000;
+    top: 0;
 }
 .profile,.cart{
     display: flex;
@@ -98,46 +102,39 @@ a:hover{
 
 
 <div class="navbar1">
-    {% if id %}
-    <a href="/customer_page">
-    <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
-    </a>
-    {% else %}
-    <a href="/main/{{user.id}}">
+
+    {% if current_user.is_authenticated %}
+  
+  
+    <a href="/main/{{current_user.id}}">
         <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
         </a>
+
+        <div class="profile">
+            <img src="{{url_for('static', filename = 'images/profile-icon.svg')}}" alt="" class="profile-icon">
+            <a href="/main/{{ user.id }}/account" style="margin-top: 0.5rem;">Account</a>
+            
+        </div>
+        <div class="cart">
+            <img src="{{url_for('static', filename = 'images/cart.svg')}}" alt="" class="cart-icon">
+            <a href="/main/{{ user.id }}/cart">Cart</a>
+        </div>
+        <div class="logout">
+    
+            <a href="/logout">Log Out</a>
+        </div>
+            {% else %}
+            <a href="/customer_page">
+                <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
+                </a>
+
+                <a href="/reg_user">REGISTER</a>
+                <a href="/user_login">LOGIN</a>
+
         {% endif %}
 
-        <!-- <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
-                <form action="/main/{{user.id}}/search" method="GET">
-                    <div class="searchbar">
-                        <input class="search_input" type="text" name="q" placeholder="Search...">
-                        <button class="btn btn-sm btn-success" type="submit" style="background: none;
-                                        border: none;"><i class="fas fa-search"></i></button>
-                    </div>
-                    </form>
-            </div>
-        </div> -->
-     
-<!-- 
-    <div class="search-bar">
-        <input type="text" placeholder="Search shops nearby..." class="search-input">
-        <img src="search.svg" alt="" class="search-icon">
-    </div> -->
-    <div class="profile">
-        <img src="{{url_for('static', filename = 'images/profile-icon.svg')}}" alt="" class="profile-icon">
-        <a href="/main/{{ user.id }}/account" style="margin-top: 0.5rem;">Account</a>
-        
-    </div>
-    <div class="cart">
-        <img src="{{url_for('static', filename = 'images/cart.svg')}}" alt="" class="cart-icon">
-        <a href="/main/{{ user.id }}/cart">Cart</a>
-    </div>
-    <div class="logout">
-
-        <a href="/logout">Log Out</a>
-    </div>
+  
+ 
 </div>
 </body>
 </html>

@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% include 'navbar.html' %}
 {% block header %}
 
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
 {% endblock %}
+
 {% block content %}
 
- {% include 'navbar.html' %}
+ 
 
     <main class="container1">
         <section class="left">
@@ -57,7 +59,7 @@
                     </div>
                     <div class="pin info-box">
                         <p class="label">Pin</p>
-                        <input type="number" class="pin-code field" value="{{user.pincode}}" >
+                        <input type="number" class="pin-code field" value="{{user.pincode}}" name="pincode">
                     </div>
                 </div>
                 <div class="profile-picture">

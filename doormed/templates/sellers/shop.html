@@ -21,15 +21,15 @@
             alt="no">
           </div>
           <div class="links">
-           <a id="button1" > <i class="fas fa-pen-alt fa-2x"></i></a>
-            <i class="fas fa-book fa-2x" id="book"></i>
-            <i class="fas fa-store-alt fa-2x" id="add"></i>
+           <a id="button1" title="Update"> <i class="fas fa-pen-alt fa-2x"></i></a>
+         <i class="fas fa-book fa-2x" id="book"></i>
+   <i class="fas fa-store-alt fa-2x" id="add"></i>
             <form method="POST" action="/shops/delete">
             
-          <button style="background-color: #222432; border: none;"> <i class="fas fa-user-minus fa-2x" id="out"></i></button> 
+          <button style="background-color: #222432; border: none;"><a title="Delete"> <i class="fas fa-user-minus fa-2x" id="out"></i></a></i></button> 
           </form>
             
-            <a href="/logout_seller">  <i class="fas fa-sign-out-alt fa-2x" id="out"></i></a>
+            <a href="/logout_seller" title="Logout">  <i class="fas fa-sign-out-alt fa-2x" id="out"></i></a>
           </div>
         </div>
         <div class="table-board">
@@ -155,8 +155,8 @@
     <div class="container2">
 
 
-
-
+{% if orders %}
+{% for order, user in user_order %}
 
 
       <div class="card1">
@@ -166,25 +166,25 @@
                   <h3>
 
                       <span>Invoice No: </span>
-                      <span class="green">2sdgsgd5</span>
+                      <span class="green">{{order.invoice}}</span>
                       <br>
                       <span>CUSTOMER NAME: </span>
-                      <span class="green">Nikita Das</span>
+                      <span class="green">{{user.name}}</span>
                       <br>
                       <span>ADDRESS: </span>
-                      <span class="green">5/52 N.S.C. Bose Road</span>
+                      <span class="green">{{user.address}}</span>
                       <br>
                       <span>CITY: </span>
-                      <span class="green">Kolkata</span>
+                      <span class="green">{{user.city}}</span>
                       <br>
                       <span>PINCODE: </span>
-                      <span class="green">700040</span>
+                      <span class="green">{{user.pincode}}</span>
                       <br>
                       <span>ORDER DATE: </span>
-                      <span class="green">21/12/2012</span>
+                      <span class="green">{{order.order_date.strftime("%d-%m-%Y")}}</span>
                       <br>
                       <span>TOTAL: </span>
-                      <span class="green">1200</span>
+                      <span class="green">{{order.total}}</span>
                       <br>
 
 
@@ -202,6 +202,9 @@
 
           </ul>
       </div>
+
+      {% endfor %}
+      {% endif %}
   </div>
     
 
@@ -234,9 +237,11 @@
             var add = document.querySelector('#add');
             var btn = document.querySelector('#book');
             var status = document.querySelector('.status a').innerHTML;
+            // var anch = document.querySelector('#an');
 
             btn.addEventListener('click', () => {
                 order.style.display = "flex";
+                // anch.style.display = "flex";
                 table.style.display = "none";
                 btn.style.display = "none";
                 add.style.display = "block";

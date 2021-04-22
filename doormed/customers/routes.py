@@ -167,6 +167,7 @@ def update(id):
         user.number = request.form.get("number")
         user.address = request.form.get("address")
         user.city = request.form.get("city").lower()
+        user.pincode = request.form.get("pincode")
         db.session.commit()
         flash(f'Your account has been updated!')
         return redirect(url_for('account', id = user.id))

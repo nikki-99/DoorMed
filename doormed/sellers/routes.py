@@ -1,7 +1,7 @@
 from doormed import app, db, bcrypt
 from flask import render_template,redirect,url_for,request,flash, send_file
 from flask_login import login_user, current_user,login_required, logout_user
-from doormed.models import Register_seller, Products
+from doormed.models import Register_seller, Products, Order, Register_user
 from io import BytesIO
 
 
@@ -75,6 +75,15 @@ def logout_seller():
 def shops():
     seller = Register_seller.query.filter_by(id =current_user.id ).first()
     products = Products.query.filter_by(shop_id = seller.id)
+    users = []
+    orders = Order.query.filter_by(sh_id = seller.id).all()
+    if orders:
+        for order in orders:
+            user = Register_user.query.filter_by(id = order.cust_id).first()
+            users.append(user)
+    
+            return render_template('sellers/shop.html', seller = seller, products = products, orders = orders, user_order = zip(orders, users))
+
     return render_template('sellers/shop.html', seller = seller, products = products)
 
 

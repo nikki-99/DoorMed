@@ -8,105 +8,48 @@
 {% endblock %}
 
 {% block content %}
-<div class="landing">
-    <header>
-
-        
-        <div class="container">
-            <input type="checkbox" name="" id="check">
-
-            <div class="logo-container">
-                <img src="{{url_for('static', filename = 'images/icon.png')}}" width="30px" height="30px">
-                <h2 class="logo">DOORMED</h2>
-            </div>
-
-            <div class="nav-btn">
-                <div class="nav-links">
-                    <ul>
-
-                        
-                      
-                        
-                        <li class="nav-link" style="--i: 1.25s">
-                            <a href="reg_user">REGISTER</a>
-
-                        </li>
-
-
-                        <li class="nav-link" style="--i: 1.35s">
-                            <a href="/user_login">LOGIN</a>
-                        </li>
-                       
-                        
-                        
-                    </ul>
+{% include 'navbar.html' %}
+<div class="all">
+    <div class="bar">
+      <div class="text">
+           <p>Keep yourself away from COVID and get your medication at your doorstep with minimum amount of human contact</p>
+      </div>
+      <div class="aunty">
+        <img src="{{url_for('static', filename = 'images/door.png')}}">
+      </div>
+    </div>
+    <div class="main">
+        <div class="shops">
+            {% if shops %}
+            {% for shop in shops %}
+            <div class="shop">
+                <div class="imgpart">
+  <img src="/show/{{shop.id}}">
+                </div>
+                <div class="details">
+                  <h2>{{shop.shop_name}}</h2>
+                  <p>{{shop.address}}</p>
+                  <p>{{shop.city}}</p>
+                  <p>{{shop.pincode}}</p>
+                </div>
+                <div class="bio">
+                    <p>"Lorem ipsum dolor sLobhggdshndjshcbznxmclzsijcjbsnmfnjdshufhdsmnf mdsjnjnm nhgfyjsuhdjks,erat voluptates."</p>
+                </div>
+                <div class="links">
+                    <i class="fas fa-star fa-2x"></i>
+           
+          
+                      <a href="/user_login">View more</a>
                 </div>
             </div>
+            {% endfor %}
+            {% endif %}
 
-            <div class="hamburger-menu-container">
-                <div class="hamburger-menu">
-                    <div></div>
-                </div>
-            </div>
+
+           
         </div>
-    </header>
-    <main>
-        <section>
-            <div class="overlay">
-                <div class="text-p">
-                    <p>"We are here to help you. You can trust us. We will deliver medicine at your door within 5-10
-                        minutes..."</p>
-                </div>
-            </div>
-
-
-        </section>
-    </main>
-</div>
-
-
-
-
-
-
-<div class="main1">
-
-
-
-
-    <div class="container">
-<!-- {{products}} -->
-        {% if shops %}
-        {% for shop in shops %}
-        <div class="card1">
-
-            <div class="content">
-                <div class="imgBx">
-                    <img src="/show1/{{shop.id}}">
-                </div>
-                <div class="text">
-                    <h3>{{shop.shop_name}}</h3>
-                </div>
-            </div>
-
-            <div class="bio">
-                <h1>"You can trust us..best shop around {{shop.city}}"</h1>
-            </div>
-            <ul class="links">
-                <li style="--i:1">{{shop.state}}</li>
-                <li style="--i:2">{{shop.city}}</li>
-                <li style="--i:3">{{shop.pincode}}</li>
-                <!-- <li style="--i:4"><a href="{{url_for('user_login')}}}">View More</a></li> -->
-            </ul>
-        </div>
-        {% endfor %}
-     
-        {% endif %}
 
     </div>
-</div>
-</div>
-
-</div>
+    </div>
 
 {% endblock %}
