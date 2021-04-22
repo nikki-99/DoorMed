@@ -10,18 +10,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="box" style="background: linear-gradient(to top, rgb(104, 222, 226), rgb(241, 195, 195)); height: 10vh;">
-    <div class="container h-100">
-        <div class="d-flex justify-content-center h-100">
-            <form action="/main/{{id}}/search" method="GET">
-                <div class="searchbar">
-                    <input class="search_input" type="text" name="q" placeholder="Search...">
-                    <button class="btn btn-sm btn-success" type="submit" style="background: none;
-                                    border: none;"><i class="fas fa-search"></i></button>
-                </div>
-                </form>
-        </div>
-    </div>
+{% include 'navbar.html' %}
+<div class="box">
+  
     <br>
     <h3 style="color:blue; text-align: center;"> Search result for <b style="color: green;">"{{q}}"</b> :</h3>
     <br>
@@ -54,7 +45,7 @@
                         {% else %}
                         <td> Not available</td>
                         {% endif %}
-                        <td> <img src="/static/img/amoxil.png" width="130px" height="100px"> </td>
+                        <td> <img src="/show/{{product.id}}" alt="no" width="115px" height="100px"> </td>
                         <td> {{product.price}} </td>
                         <td> 
                         <form method="POST" action="/main/{{id}}/addcart">
@@ -73,9 +64,7 @@
 
                     {% endif %}
            
-                  <input style="float: right; background-color: crimson; color: white; outline: none;padding: 0.5rem;width: 10%;
-                  border-radius: 8px;
-                  margin: 2rem" action="action" onclick="window.history.go(-1); return false;" type="submit" value="Back"/>
+                 
         </div>
     </div>
 </div>

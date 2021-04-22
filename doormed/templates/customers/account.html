@@ -76,7 +76,7 @@
              {% for order in orders %}
                   <div class="o1">
                       <div class="imBox">
-                          <img src="" alt="">
+                          <img src="/show1/{{shop.id}}" alt="" width="150px" height="90px" style="margin: auto;">
                       </div>
                       <div class="shopname">
                           <h4 style="color: green;">{{shop.shop_name}}</h4>
@@ -94,6 +94,8 @@
           
                 </div>
                 {% endfor %}
+                {% else %}
+                <h3 style="margin: auto; text-align: center; font-size: 10px;">You haven't purchased anything yet!</h3>
                 {% endif %}
 
                

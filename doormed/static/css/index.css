@@ -245,10 +245,10 @@ h2 {
     
 }
 .o1 .imBox{
-    padding: 0.5rem;
+    padding: 0.2rem;
     height: 12vh;
     width: 12%;
-    background:  gray;
+    /* background:  gray; */
 }
 .o1 p{
     margin-top: 0.5rem;

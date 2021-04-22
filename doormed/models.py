@@ -42,7 +42,8 @@ class Products(db.Model):
     mfg = db.Column(db.String(60), nullable=True)
     description = db.Column(db.Text, nullable=True)
     shop_id = db.Column(db.Integer, db.ForeignKey('register_seller.id'),nullable=False)
-    pic = db.Column(db.String, nullable=False)
+    pic_name = db.Column(db.String(200))
+    pic_data = db.Column(db.LargeBinary)
     cartitems = db.relationship('CartItem', backref='Product')
 
     def __repr__(self):
@@ -63,7 +64,8 @@ class Register_seller(db.Model, UserMixin):
     pincode = db.Column(db.String(120),  nullable=False)
     shop_name = db.Column(db.String(120),  nullable=False)
     bio = db.Column(db.String(120),default= 'Best Shop')
-    image = db.Column(db.String(120), nullable = False)
+    pic_name = db.Column(db.String(200))
+    pic_data = db.Column(db.LargeBinary)
     products = db.relationship('Products', backref='shop', lazy=True, cascade="all,delete")
     orders2 = db.relationship('Order', backref='Seller')
 

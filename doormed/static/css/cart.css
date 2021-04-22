@@ -113,9 +113,9 @@ body{
 .main .left .carts .cart .imgBox{
   width: 20%;
   min-height: 20vh;
-  background: gray;
+  /* background: gray; */
   margin: auto;
-  padding-left: 1.5rem;
+  /* padding-left: 1.5rem; */
   border-radius: 5px;
   
   

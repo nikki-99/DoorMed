@@ -96,7 +96,7 @@ def main(id):
                     shop1.append(sho)
                 # pros = Products.query.filter(Products.name.contains(q))
                 # shops.append(shops1)
-        return render_template('customers/searchmed.html', shop_and_prod = zip(shop1,pros), products=pros,shop=shop1,q=q, id = id)
+        return render_template('customers/searchmed.html', shop_and_prod = zip(shop1,pros), products=pros,shop=shop1,q=q, id = id, user = user)
     else:
         shops = Register_seller.query.filter_by(city= user.city)
         # print(shops)
@@ -121,7 +121,7 @@ def search(id):
                     shop1.append(sho)
                 # pros = Products.query.filter(Products.name.contains(q))
                 # shops.append(shops1)
-        return render_template('customers/searchmed.html', shop_and_prod = zip(shop1,pros), products=pros,shop=shop1,q=q,id=id)
+        return render_template('customers/searchmed.html', shop_and_prod = zip(shop1,pros), products=pros,shop=shop1,q=q,id=id, user = user)
     return redirect(url_for('main',id=id))
 
 
@@ -148,11 +148,13 @@ def shop_details(id):
 def account(id):
     user = Register_user.query.filter_by(id = id).first()
     orders = Order.query.filter_by(cust_id = user.id).all()
-    order = Order.query.filter_by(cust_id = user.id).first()
-    ordered_shop = Register_seller.query.filter_by(id = order.sh_id).first()
+    if orders:
+        order = Order.query.filter_by(cust_id = user.id).first()
+        ordered_shop = Register_seller.query.filter_by(id = order.sh_id).first()
 
 
-    return render_template('customers/account.html', user = user, orders = orders, shop = ordered_shop)
+        return render_template('customers/account.html', user = user, orders = orders, shop = ordered_shop)
+    return render_template('customers/account.html', user = user)    
 
 
 @app.route('/main/<int:id>/account/update', methods= ['GET', 'POST'])

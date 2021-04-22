@@ -1,8 +1,8 @@
 from doormed import app, db, bcrypt
-from flask import render_template,redirect,url_for,request,flash
+from flask import render_template,redirect,url_for,request,flash, send_file
 from flask_login import login_user, current_user,login_required, logout_user
 from doormed.models import Register_seller, Products
-
+from io import BytesIO
 
 
 @app.route('/seller_register', methods = ['GET','POST'])
@@ -18,7 +18,8 @@ def register_seller():
         state = request.form.get("State")
         shop = request.form.get("shop")
         bio = request.form.get("Bio")
-        image = request.form.get("fileupload")
+        
+        img = request.files['fileupload']
 
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         email1 = Register_seller.query.filter_by(email = email).first()
@@ -28,7 +29,7 @@ def register_seller():
             return redirect(url_for('register_seller'))
         entry = Register_seller(name=name, email=email, password=hashed_password,
                                 number=number, address=address, city=city.lower(),
-                                pincode=pin, state=state, shop_name=shop, bio=bio, image=image)
+                                pincode=pin, state=state, shop_name=shop, bio=bio, pic_name =img.filename, pic_data = img.read())
         db.session.add(entry)
         db.session.commit()
         flash(f'{shop} is registered successfully in our database. Now you are able to login!', 'success')
@@ -120,10 +121,11 @@ def addproduct():
     if request.method == "POST":
         name = request.form.get('Name')
         desc = request.form.get('Desc')
-        image = request.form.get('Image')
+        
         catagory = request.form.get('Catagory')
         price = request.form.get('price')
         mfg = request.form.get('Mfg')
+        img = request.files['Image']
 
         name1 = Products.query.filter_by(name = name, shop_id = seller.id).first()
         if name1:
@@ -132,7 +134,7 @@ def addproduct():
             return redirect(url_for('addproduct'))
               
 
-        entry = Products(name=name, shop_id=seller.id, catagory=catagory, price=price, mfg=mfg, description=desc, pic=image)
+        entry = Products(name=name, shop_id=seller.id, catagory=catagory, price=price, mfg=mfg, description=desc, pic_name =img.filename, pic_data = img.read())
         db.session.add(entry)
         db.session.commit()
         flash(f'{name} is added successfully')
@@ -155,5 +157,15 @@ def deleteproduct(id):
       
 
    
+@app.route('/show/<int:id>')
+def getimg(id):
+    img = Products.query.filter_by(id = id).first()
+    get = send_file(BytesIO(img.pic_data), attachment_filename = 'flask.jpg')
+    return get
 
 
+@app.route('/show1/<int:id>')
+def getimg1(id):
+    img = Register_seller.query.filter_by(id = id).first()
+    get = send_file(BytesIO(img.pic_data), attachment_filename = 'flask.jpg')
+    return get

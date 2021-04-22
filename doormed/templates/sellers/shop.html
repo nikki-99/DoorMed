@@ -17,11 +17,13 @@
         <div class="dashboard">
           <div class="imgBox" id="pop">
      
-            <img src="{{seller.image}}" alt="no">
+            <img src="/show1/{{seller.id}}" id="img1"
+            alt="no">
           </div>
           <div class="links">
            <a id="button1" > <i class="fas fa-pen-alt fa-2x"></i></a>
-            <i class="fas fa-book fa-2x"></i>
+            <i class="fas fa-book fa-2x" id="book"></i>
+            <i class="fas fa-store-alt fa-2x" id="add"></i>
             <form method="POST" action="/shops/delete">
             
           <button style="background-color: #222432; border: none;"> <i class="fas fa-user-minus fa-2x" id="out"></i></button> 
@@ -70,7 +72,7 @@
                           <td>{{loop.index}}</td>
                           <td>{{product.catagory}}</td>
                           <td>{{product.name}}</td>
-                          <td><img src="" alt="no" width="40" height="30"></td>
+                          <td><img src="/show/{{product.id}}" alt="no" width="40" height="30"></td>
                           <td>{{product.price}}</td>
                 
                           <td><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ product.id }}">
@@ -147,6 +149,61 @@
          border: navajowhite;">
        </form>
     </div>
+    </div>
+
+    
+    <div class="container2">
+
+
+
+
+
+
+      <div class="card1">
+          <div class="content">
+
+              <div class="text">
+                  <h3>
+
+                      <span>Invoice No: </span>
+                      <span class="green">2sdgsgd5</span>
+                      <br>
+                      <span>CUSTOMER NAME: </span>
+                      <span class="green">Nikita Das</span>
+                      <br>
+                      <span>ADDRESS: </span>
+                      <span class="green">5/52 N.S.C. Bose Road</span>
+                      <br>
+                      <span>CITY: </span>
+                      <span class="green">Kolkata</span>
+                      <br>
+                      <span>PINCODE: </span>
+                      <span class="green">700040</span>
+                      <br>
+                      <span>ORDER DATE: </span>
+                      <span class="green">21/12/2012</span>
+                      <br>
+                      <span>TOTAL: </span>
+                      <span class="green">1200</span>
+                      <br>
+
+
+
+                  </h3>
+
+
+
+              </div>
+          </div>
+          <ul class="links">
+
+              <li class="status"><a>Completed</a></li>
+
+
+          </ul>
+      </div>
+  </div>
+    
 
 
 
@@ -170,5 +227,29 @@
               document.querySelector(".popup1").style.display = "none";
           })
           
+
+          
+          var order = document.querySelector('.container2');
+            var table = document.querySelector('.table-board');
+            var add = document.querySelector('#add');
+            var btn = document.querySelector('#book');
+            var status = document.querySelector('.status a').innerHTML;
+
+            btn.addEventListener('click', () => {
+                order.style.display = "flex";
+                table.style.display = "none";
+                btn.style.display = "none";
+                add.style.display = "block";
+
+            });
+
+            add.addEventListener('click', () => {
+                table.style.display = "flex";
+                order.style.display = "none";
+                add.style.display = "none";
+                btn.style.display = "flex";
+
+            });
+
     </script>
 {% endblock %}

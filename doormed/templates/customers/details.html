@@ -58,7 +58,7 @@
         {% endif %}
 
        
-        <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
+        <td> <img src="/show/{{med.id}}" width="80px" height="90px"> </td>
         <td> {{med.price}} </td>
         <td>  <form method="POST" action="/main/{{user.id}}/addcart">
           <input type="hidden" name="product_id" value="{{ med.id }}">
@@ -82,7 +82,7 @@
   <td> Not available </td>
 
   {% endif %}
-  <td> <img src="/static/img/amoxil.png" width="80px" height="90px"> </td>
+  <td> <img src="/show/{{product.id}}" width="80px" height="90px"> </td>
   <td> {{product.price}} </td>
   <td> <form method="POST" action="/main/{{user.id}}/addcart">
     <input type="hidden" name="product_id" value="{{ product.id }}">
