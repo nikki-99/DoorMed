@@ -100,19 +100,20 @@ body{
 
 .main .left .carts .cart{
   width: 95%;
-  min-height: 20vh;
+  min-height: 18vh;
   /* background: green; */
   border-radius: 5px;
   border: 0.2px solid rgba(0,0,0,0.2);
   /* box-shadow: 1px 1px 3px gray; */
   position: relative;
   display: flex;
+  margin-top: 0.5rem;
 
 
 }
 .main .left .carts .cart .imgBox{
   width: 20%;
-  min-height: 20vh;
+  min-height: 16vh;
   /* background: gray; */
   margin: auto;
   /* padding-left: 1.5rem; */
@@ -122,7 +123,7 @@ body{
 }
 .main .left .carts .cart  .all{
   width: 70%;
-  min-height: 30vh;
+  min-height: 25vh;
   /* background: greenyellow; */
   display: flex;
   flex-direction: row;

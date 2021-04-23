@@ -10,10 +10,10 @@
 {% block content %}
 {% include 'navbar.html' %}
 <div class="all">
-    <div class="bar">
+    <div class="bar" style="margin-top: 4rem;">
       <div class="text">
         <div class="text-box">
-        <p>Keep yourself away from COVID and get your medication at your doorstep with minimum amount of human contact</p>
+        <p>Keep yourself away from COVID and get your medication at your doorstep with minimum amount of human contact..</p>
         </div>
         <div class="search-option">
           <form method="GET" style="    display: flex;
@@ -53,7 +53,7 @@
             {% for shop in shops %}
             <div class="shop">
                 <div class="imgpart">
-                    <img src="/show/{{shop.id}}">
+                    <img src="/show/{{shop.id}}" alt="no">
                 </div>
                 <div class="details">
                   <h2>{{shop.shop_name}}</h2>

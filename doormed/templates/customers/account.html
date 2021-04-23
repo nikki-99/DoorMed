@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-{% include 'navbar.html' %}
+
 {% block header %}
 
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
 {% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
 
  
 
@@ -78,10 +79,10 @@
              {% for order in orders %}
                   <div class="o1">
                       <div class="imBox">
-                          <img src="/show1/{{shop.id}}" alt="" width="150px" height="90px" style="margin: auto;">
+                          <img src="/show1/{{shop.id}}" alt="" width="130px" height="90px" style="margin: auto;">
                       </div>
                       <div class="shopname">
-                          <h4 style="color: green;">{{shop.shop_name}}</h4>
+                          <h4 style="color: green; font-size: 20px;">{{shop.shop_name}}</h4>
                       </div>
                       <div class="list-all">
                           <p>Invoice No: <b>{{order.invoice}}</b></p>
