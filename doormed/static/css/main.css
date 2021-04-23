@@ -64,3 +64,10 @@ td {
     padding-left: 200px;
     padding-bottom: 200px;
 }
+
+.box{
+    margin-top: 1rem;
+}
+a{
+    text-decoration: none;
+}

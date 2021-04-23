@@ -11,8 +11,25 @@
 
 {% block content %}
 {% include 'navbar.html' %}
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <form action="/main/{{id}}/search" method="GET">
+            <div class="searchbar" style="margin-top: 4rem;">
+                <input class="search_input" type="text" name="q" placeholder="Search...">
+                <button class="btn btn-sm btn-success" type="submit" style="background: none;
+                                border: none;"><i class="fas fa-search"></i></button>
+            </div>
+            </form>
+            </div>
+</div>
+
+
 <div class="box">
   
+
+   
+
+
     <br>
     <h3 style="color:blue; text-align: center;"> Search result for <b style="color: green;">"{{q}}"</b> :</h3>
     <br>
@@ -60,7 +77,7 @@
                 </tbody>
             </table>
                     {% else %}
-                  <h2 style="text-align: center; color: rgb(2, 2, 116); margin-top: 5rem;">Medicines of this name are not available in any near by shop..</h2> 
+                  <h3 style="text-align: center; color: rgb(2, 2, 116); margin-top: 5rem;">Medicines of this name are not available in any near by shop..</h3> 
 
                     {% endif %}
            

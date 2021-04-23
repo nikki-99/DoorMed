@@ -13,19 +13,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
  {% endblock %}
   {% block content %}
+  {% include 'navbar.html' %}
 
-  <div class="box" style="background: linear-gradient(to top, rgb(104, 222, 226), rgb(241, 195, 195)); height: 10vh;">
-   <div class="container h-100">
-      <div class="d-flex justify-content-center h-100">
-        <form action="/{{shop.id}}" method="GET">
-          <div class="searchbar">
-              <input class="search_input" type="text" name="q" placeholder="Search...">
-              <button class="btn btn-sm btn-success" type="submit" style="background: none;
-                              border: none;"><i class="fas fa-search"></i></button>
-          </div>
-          </form>
-      </div>
+  <div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+      <form action="/{{shop.id}}" method="GET">
+        <div class="searchbar" style="margin-top: 4rem;">
+            <input class="search_input" type="text" name="q" placeholder="Search...">
+            <button class="btn btn-sm btn-success" type="submit" style="background: none;
+                            border: none;"><i class="fas fa-search"></i></button>
+        </div>
+        </form>
     </div>
+  </div>
+
+  <div class="box">
+  
     <br>
     <h2 style="text-align: center; padding: 0.8rem;"> List of medicines available in <b style="text-transform: uppercase;color: rgb(107, 7, 107); ">{{shop.shop_name}}</b></h2>
     <br>

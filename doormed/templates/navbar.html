@@ -22,11 +22,17 @@
     z-index: 100000;
     top: 0;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 .profile,.cart{
     display: flex;
+    align-items: center;
+    margin-left: 2rem;
 }
 .cart{
-    margin-right: 60px;
+    margin-right: 8px;
 }
 .profile-name,.cart-text{
     display: flex;
@@ -95,7 +101,14 @@ a:hover{
 .hover-1:hover .hover-overlay {
     opacity: 0;
 } */
-
+.left1{
+    display: flex;
+}
+.logout{
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
 </style>
 </head>
 <body>
@@ -104,11 +117,21 @@ a:hover{
 <div class="navbar1">
 
     {% if current_user.is_authenticated %}
-  
+  <div class="logo">
   
     <a href="/main/{{current_user.id}}">
         <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
         </a>
+</div>
+
+
+
+
+        <div class="left1">
+
+                
+      
+
 
         <div class="profile">
             <img src="{{url_for('static', filename = 'images/profile-icon.svg')}}" alt="" class="profile-icon">
@@ -123,13 +146,19 @@ a:hover{
     
             <a href="/logout">Log Out</a>
         </div>
+        </div>
             {% else %}
             <a href="/customer_page">
                 <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
                 </a>
 
+                <div class="left1">
+
+               
+
                 <a href="/reg_user">REGISTER</a>
                 <a href="/user_login">LOGIN</a>
+                </div>
 
         {% endif %}
 

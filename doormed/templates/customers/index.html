@@ -12,7 +12,34 @@
 <div class="all">
     <div class="bar">
       <div class="text">
-           <p>Keep yourself away from COVID and get your medication at your doorstep with minimum amount of human contact</p>
+        <div class="text-box">
+        <p>Keep yourself away from COVID and get your medication at your doorstep with minimum amount of human contact</p>
+        </div>
+        <div class="search-option">
+          <form method="GET" style="    display: flex;
+          align-items: center;
+          width: 90%;">
+              <input class="search_input" type="text" name="q" placeholder="Enter medicine name to search" style="    padding: 0.8rem;
+              border-radius: 10px;
+              border: none;
+              outline: none; width: 150%; font-size: 15px;">
+              <div class="btn1">
+                <button class="btn btn-sm btn-success" type="submit" style="background: none;
+                border: none;
+                "><i class="fas fa-search" style="color: white;"></i></button>
+              </div>
+              
+      </form>
+      </div>
+
+     
+
+
+        
+      
+
+
+
       </div>
       <div class="aunty">
         <img src="{{url_for('static', filename = 'images/door.png')}}">
@@ -39,7 +66,7 @@
                 </div>
                 <div class="links">
                     <i class="fas fa-star fa-2x"></i>
-                      <a>View more</a>
+                      <a href="/{{shop.id}}">View more</a>
                 </div>
             </div>
 

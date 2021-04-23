@@ -62,7 +62,7 @@ body{
   height: 92vh;
   
   position: relative;
-  
+  margin-top: 3rem;
 }
 .main .left .head{
   width: 100%;
@@ -74,7 +74,7 @@ body{
 }
 .main .left .shop{
   min-height: 20vh;
-  max-width: 96%;
+  max-width: 90%;
   color: black;
   padding: 1rem 1.9rem;
   margin-left: 1.9rem;
@@ -99,8 +99,8 @@ body{
 }
 
 .main .left .carts .cart{
-  width: 100%;
-  min-height: 25vh;
+  width: 95%;
+  min-height: 20vh;
   /* background: green; */
   border-radius: 5px;
   border: 0.2px solid rgba(0,0,0,0.2);

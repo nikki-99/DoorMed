@@ -82,7 +82,7 @@ def shops():
             user = Register_user.query.filter_by(id = order.cust_id).first()
             users.append(user)
     
-            return render_template('sellers/shop.html', seller = seller, products = products, orders = orders, user_order = zip(orders, users))
+        return render_template('sellers/shop.html', seller = seller, products = products, orders = orders, user_order = zip(orders, users), users = users)
 
     return render_template('sellers/shop.html', seller = seller, products = products)
 
