@@ -398,3 +398,15 @@ span{
 li{
     list-style: none;
 }
+.contact{
+    width: 90%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.contact a{
+    color: white;
+    text-decoration: none;
+    margin-left: 0.5rem;
+}

@@ -109,6 +109,16 @@ a:hover{
     align-items: center;
     margin-left: 2rem;
 }
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+}
+i{
+    margin-top: 1rem;
+    color: white;
+}
 </style>
 </head>
 <body>
@@ -146,6 +156,11 @@ a:hover{
     
             <a href="/logout">Log Out</a>
         </div>
+<div class="contact">
+    <a href="/contact">Contact Us</a>
+    <i class="fas fa-phone"></i>
+</div>
+
         </div>
             {% else %}
             <a href="/customer_page">
@@ -158,7 +173,11 @@ a:hover{
 
                 <a href="/reg_user">REGISTER</a>
                 <a href="/user_login">LOGIN</a>
+
+                <a href="/contact">Contact Us</a>
+                <i class="fas fa-phone"></i>
                 </div>
+               
 
         {% endif %}
 

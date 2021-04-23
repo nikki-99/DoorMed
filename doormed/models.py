@@ -63,11 +63,11 @@ class Register_seller(db.Model, UserMixin):
     state = db.Column(db.String(120),  nullable=False)
     pincode = db.Column(db.String(120),  nullable=False)
     shop_name = db.Column(db.String(120),  nullable=False)
-    bio = db.Column(db.String(120),default= 'Best Shop')
+    bio = db.Column(db.String(120),default= 'You can trust us!')
     pic_name = db.Column(db.String(200))
     pic_data = db.Column(db.LargeBinary)
     products = db.relationship('Products', backref='shop', lazy=True, cascade="all,delete")
-    orders2 = db.relationship('Order', backref='Seller')
+    orders2 = db.relationship('Order', backref='Seller', cascade = "all,delete")
 
     def __repr__(self):
         return '<Register_seller %r>' % self.name
