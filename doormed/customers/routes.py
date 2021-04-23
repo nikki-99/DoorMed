@@ -110,7 +110,30 @@ def search(id):
     user = Register_user.query.filter_by(id = id).first()
     pros = []
     shop1 = []
+    shop2 = []
+    pro2 = []
     q = request.args.get('q')
+    if q:
+        shops1 = Register_seller.query.filter_by(city=user.city).all()
+        for sho in shops1:
+            prod = Products.query.filter_by(shop_id=sho.id).all()           
+            for p in prod:
+                if q.lower() in p.name.lower():
+                    pros.append(p)
+                    shop1.append(sho)
+        return render_template('customers/searchmed.html', shop_and_prod = zip(shop1,pros), products=pros,shop=shop1,q=q,id=id, user = user)            
+                # pros = Products.query.filter(Products.name.contains(q))
+                # shops.append(shops1)  
+    return redirect(url_for('main',id=id))
+
+
+
+@app.route('/main/<int:id>/<string:q>')
+@login_required
+def sort(id,q):
+    user = Register_user.query.filter_by(id = id).first()
+    pros = []
+    shop1 = []
     if q:
         shops1 = Register_seller.query.filter_by(city=user.city).all()
         for sho in shops1:
@@ -121,9 +144,14 @@ def search(id):
                     shop1.append(sho)
                 # pros = Products.query.filter(Products.name.contains(q))
                 # shops.append(shops1)
-        return render_template('customers/searchmed.html', shop_and_prod = zip(shop1,pros), products=pros,shop=shop1,q=q,id=id, user = user)
-    return redirect(url_for('main',id=id))
+        pros.sort(key = lambda x: x.price)
+        return render_template('customers/searchmed.html', shop_and_prod = zip(shop1,pros), products=pros,shop=shop1,q=q, id = id, user = user)
+    else:
+        shops = Register_seller.query.filter_by(city= user.city)
+        # print(shops)
+    return render_template('customers/index.html', shops = shops, user = user)
 
+    
 
 @app.route('/<int:id>')
 @login_required

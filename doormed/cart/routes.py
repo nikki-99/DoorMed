@@ -40,7 +40,7 @@ def addcart(id):
 
                 shopId = Register_seller.query.filter_by(id = prodId.shop_id).first()
                 if shop2.id != shopId.id:
-                    flash(f'You can not add this!')
+                    flash(f'You can not add this! You already have meds from different shop.')
                     return redirect(url_for('cart', id = user.id))
 
 

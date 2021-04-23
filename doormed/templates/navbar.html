@@ -126,10 +126,10 @@ i{
 
 <div class="navbar1">
 
-    {% if current_user.is_authenticated %}
+    {% if user %}
   <div class="logo">
   
-    <a href="/main/{{current_user.id}}">
+    <a href="/main/{{user.id}}">
         <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo">
         </a>
 </div>

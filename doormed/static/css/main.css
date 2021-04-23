@@ -71,3 +71,23 @@ td {
 a{
     text-decoration: none;
 }
+
+.sort-price{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+
+}
+#sort{
+    background: #32B47D;
+    color: white;
+    font-weight: 500;
+    margin-right: 0;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 6rem;
+    border-radius: 5px;
+}

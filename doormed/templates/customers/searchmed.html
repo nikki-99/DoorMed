@@ -21,7 +21,15 @@
             </div>
             </form>
             </div>
+            <div class="sort-price">
+                <form action="/main/{{user.id}}/{{q}}">
+                    <button id="sort">Sort by Price</button>
+                </form>
+            </div>
+           
 </div>
+
+
 
 
 <div class="box">
@@ -58,7 +66,7 @@
                                               
                         <td> {{product.name}} </td>
                         {% if product.description %}
-                        <td> {{product.description}} </td>
+                        <td style="width: fit-content;"> {{product.description}} </td>
                         {% else %}
                         <td> Not available</td>
                         {% endif %}

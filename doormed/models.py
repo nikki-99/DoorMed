@@ -63,7 +63,7 @@ class Register_seller(db.Model, UserMixin):
     state = db.Column(db.String(120),  nullable=False)
     pincode = db.Column(db.String(120),  nullable=False)
     shop_name = db.Column(db.String(120),  nullable=False)
-    bio = db.Column(db.String(120),default= 'You can trust us!')
+    bio = db.Column(db.String(120),default= "You can trust us!")
     pic_name = db.Column(db.String(200))
     pic_data = db.Column(db.LargeBinary)
     products = db.relationship('Products', backref='shop', lazy=True, cascade="all,delete")
