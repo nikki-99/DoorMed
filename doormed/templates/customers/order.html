@@ -18,7 +18,9 @@
            </div>
            {% if shop %}
            <div class="shop-name" style="text-align: center;">
-               <h2>{{shop.shop_name}}</h2>
+               <h3>
+                   Order from <b style="color: green;">{{shop.shop_name}}</b></h3>
+               <p>Phone No: {{shop.number}}</p>
            </div>
            {% endif %}
            <div class="details">
@@ -51,20 +53,20 @@
                <b>{{order.total}}</b>
                </div>
            </div>
-           <a style="padding: 1rem;" href="/main/{{user.id}}/account">Purchase History</a>
+           <a style="padding: 1rem; margin-left: 5rem;" href="/main/{{user.id}}/account">Purchase History</a>
         </section>
         <section class="right">
             <p class="heading">Order summary</p>
            <div class="orders">
             <div class="order">
                 <div class="name">
-                    <h2 style="color: black;">Name</h2>
+                    <h5 style="color: black;">Name</h5>
                 </div>
                 <div class="quantity">
-                    <h4>Quantity</h4>
+                    <h5>Quantity</h5>
                 </div>
                 <div class="price">
-                    <h4>Price(Rs)</h4>
+                    <h5>Price(Rs)</h5>
                 </div>
             </div>
             
@@ -72,13 +74,13 @@
           
                        <div class="order">
                            <div class="name">
-                               <h2>  {{product.name}}</h2>
+                               <h4>  {{product.name}}</h4>
                            </div>
                            <div class="quantity">
-                               <h3>{{cart.quantity}}</h3>
+                               <h4>{{cart.quantity}}</h4>
                            </div>
                            <div class="price">
-                               <h3>{{product.price * cart.quantity}}</h3>
+                               <h4>{{product.price * cart.quantity}}</h4>
                            </div>
                        </div>
 

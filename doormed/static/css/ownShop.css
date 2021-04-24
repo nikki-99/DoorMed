@@ -205,22 +205,23 @@ tr{
 .popup1 .content form a{
     border: 1px s black;
     padding: 0.8rem;
-    background: brown;
+    background: rgb(240, 235, 235);
     color: white;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     outline: none;
     cursor: pointer;
     transition: 0.5s;
 }
 .popup1 .content{
-    height: 470px;
+    height: 434px;
     width: 500px;
    
     padding: 20px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
+    /* background: white; */
     position: relative;
     backdrop-filter: blur(120px);
-    box-shadow: 0px 2px 6px grey;
+    box-shadow: 0px 2px 4px rgb(110, 110, 110);
 
 }
 .popup1 .content form{
@@ -234,6 +235,8 @@ tr{
     padding: 10px;
     border-radius: 5px;
     outline: none;
+    /* background: rgba(255, 255,255, 0.05); */
+    /* color: white; */
 
 }
 .close1{
@@ -338,7 +341,8 @@ tr{
 }
 .container2 .card1 .links{
     position: absolute;
-    bottom: 0px;
+    bottom: -10px;
+    right: 5px;
     display: flex;
     flex-direction: row-reverse;
     
@@ -376,7 +380,7 @@ tr{
     background: #32B47D;
     border: none;
     border-radius: 6px;
-    padding: 0.2rem 0.5rem;
+    padding: 0.35rem 0.5rem;
     font-weight: 400;
     margin-left: 124px;
     margin-top: 2rem;

@@ -15,7 +15,7 @@ body::after{
   left: 0;
   height: 100vh;
   width: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
 }
 .login{
   width: 100%;
@@ -36,6 +36,9 @@ body::after{
 }
 .con h2{
   text-align: justify;
+  color: white;
+    text-shadow: none;
+    font-weight: 600;
 }
 .con p{
   text-align: justify;

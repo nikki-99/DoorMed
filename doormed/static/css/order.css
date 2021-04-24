@@ -112,7 +112,7 @@
 .details{
     display: flex;
     justify-content: space-around;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .info{
     display: flex;
@@ -203,4 +203,10 @@ a{
     cursor: pointer;
     border: none;
 
+}
+h5{
+    font-size: 14px;
+}
+h4{
+    font-size: 16px;
 }
