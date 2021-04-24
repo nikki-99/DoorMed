@@ -5,50 +5,14 @@
     box-sizing: border-box;
     font-family: 'Poppins','sans serif';
 }
-.navbar{
-    display: flex;
-    height: 9.5vh;
-    background-color: #43C47B;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-}
-.search-bar{
-    width: 35%;
-    background-color: white;
-    padding: 6px 20px;
-    border-radius: 30px;
-    position: relative;
-}
-.search-input{
-    border: none;
-    outline: none;
-    width: 90%;
-}
-.search-icon{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20px;
-}
-.profile,.cart{
-    display: flex;
-}
-.cart{
-    margin-right: 60px;
-}
-.profile-name,.cart-text{
-    display: flex;
-    align-items: center;
-    color: white;
-    font-weight: 500;
-    margin-left: 10px;
-}
+
+
+
 .container1{
     display: flex;
     justify-content: space-between;
     min-height: 90vh;
-    margin-top: 3.5rem;
+    margin-top: 6.5rem;
 }
 .left{
     width: 30%;
@@ -234,7 +198,7 @@ a{
     color: white;
     font-weight: 500;
     border-radius: 5px;
-    margin: 1rem 6rem;
+    /* margin: 1rem 6rem; */
     text-decoration: none;
     cursor: pointer;
     border: none;

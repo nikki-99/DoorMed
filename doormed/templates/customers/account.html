@@ -76,7 +76,7 @@
             <section class="right1">
                 <p class="heading" style="margin-bottom: 2rem;">Purchase History</p>
              {% if orders %}
-             {% for order in orders %}
+             {% for order,shop  in shop_order %}
                   <div class="o1">
                       <div class="imBox">
                           <img src="/show1/{{shop.id}}" alt="" width="130px" height="90px" style="margin: auto;">

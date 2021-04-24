@@ -73,9 +73,9 @@
                         <td> <img src="/show/{{product.id}}" alt="no" width="115px" height="100px"> </td>
                         <td> {{product.price}} </td>
                         <td> 
-                        <form method="POST" action="/main/{{id}}/addcart">
+                        <form method="POST" action="/main/{{id}}/addcart" style="width: 127%;">
                             <input type="hidden" name="product_id" value="{{ product.id }}">
-                            <button type="submit" class="btn btn-primary"> Add + </button>
+                            <button type="submit" class="btn btn-sm btn-primary"> Add + </button>
                             <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
                         </form>
                     </td>

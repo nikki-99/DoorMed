@@ -126,18 +126,18 @@ h2{
     margin: 0.5rem 0;
 }
 .links{
-    height: 18vh;
+    height: 25vh;
     width: 20%;
     /* background: red; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 a{
     color: white;
     background: #43C47B;
-    padding: 1rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 5px;
     font-weight: 600;
     
@@ -147,7 +147,8 @@ a{
     color: green;
     font-style: italic;
 }
-i{
+.links i{
     color: yellow;
+    margin-bottom: 2rem;
    
 }

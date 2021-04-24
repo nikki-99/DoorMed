@@ -175,13 +175,16 @@ def shop_details(id):
 @login_required
 def account(id):
     user = Register_user.query.filter_by(id = id).first()
+    shops = []
     orders = Order.query.filter_by(cust_id = user.id).all()
     if orders:
-        order = Order.query.filter_by(cust_id = user.id).first()
-        ordered_shop = Register_seller.query.filter_by(id = order.sh_id).first()
+        for order in orders: 
+        
+            ordered_shop = Register_seller.query.filter_by(id = order.sh_id).first()
+            shops.append(ordered_shop)
 
 
-        return render_template('customers/account.html', user = user, orders = orders, shop = ordered_shop)
+        return render_template('customers/account.html', user = user, orders = orders, shop = ordered_shop, shop_order= zip(orders,shops))
     return render_template('customers/account.html', user = user)    
 
 

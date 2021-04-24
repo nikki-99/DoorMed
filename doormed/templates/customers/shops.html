@@ -10,7 +10,7 @@
 {% block content %}
 {% include 'navbar.html' %}
 <div class="all">
-    <div class="bar">
+    <div class="bar" style="margin-top: 2rem;">
       <div class="text">
 
 
@@ -39,11 +39,12 @@
                     <p>{{shop.bio}}</p>
                 </div>
                 <div class="links">
-                    <i class="fas fa-star fa-2x"></i>
-           
+                  <i class="fas fa-star">4.5</i>
+         
           
                       <a href="/user_login">View more</a>
                 </div>
+                
             </div>
             {% endfor %}
             {% endif %}

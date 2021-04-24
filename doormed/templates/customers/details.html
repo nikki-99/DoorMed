@@ -33,7 +33,7 @@
     <h2 style="text-align: center; padding: 0.8rem; font-size: 20px;"> List of medicines available in <b style="text-transform: uppercase;color: rgb(107, 7, 107); ">{{shop.shop_name}}</b></h2>
     <br>
   <div class="container" style="height: 80vh;">
-  <div class="table-responsive">
+  <div class="table-responsive" style="overflow-x: hidden;">
   <table class="table table-borderless table-hover table-fixed">
   <thead class="table-info"> 
   <tr>
@@ -63,10 +63,10 @@
        
         <td> <img src="/show/{{med.id}}" width="80px" height="90px"> </td>
         <td> {{med.price}} </td>
-        <td>  <form method="POST" action="/main/{{user.id}}/addcart">
+        <td>  <form method="POST" action="/main/{{user.id}}/addcart" style="width: 127%;">
           <input type="hidden" name="product_id" value="{{ med.id }}">
-          <button type="submit" class="btn btn-primary"> Add + </button>
-          <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
+          <button type="submit" class="btn btn-sm btn-primary"> Add + </button>
+          <input type="number" min="1" value="1" name = "quantity" style="max-width: 57px;">
       </form></td>
         </tr>
     {% endfor %}
@@ -87,10 +87,10 @@
   {% endif %}
   <td> <img src="/show/{{product.id}}" width="80px" height="90px"> </td>
   <td> {{product.price}} </td>
-  <td> <form method="POST" action="/main/{{user.id}}/addcart">
+  <td> <form method="POST" action="/main/{{user.id}}/addcart" style="width: 127%;">
     <input type="hidden" name="product_id" value="{{ product.id }}">
-    <button type="submit" class="btn btn-primary"> Add + </button>
-    <input type="number" min="1" value="1" name = "quantity" style="max-width: 70px;">
+    <button type="submit" class="btn btn-sm btn-primary"> Add + </button>
+    <input type="number" min="1" value="1" name = "quantity" style="max-width: 40px;">
 </form></td>
   </tr>
   {% endfor %}
@@ -103,8 +103,6 @@
   </div>
   </div>
 
-  <footer style="background-color: rgb(0, 0, 0); color: rgb(252, 0, 0); padding: 0.2rem; display: flex; flex-direction: row; align-items: center; justify-content: center;">Made with &#x2764 
-    <h3><a href="/contact" style="color: white; margin-left: 2rem;">Contact Us</a></h3>
-     </footer>
+  
     </div>
   {% endblock %}
